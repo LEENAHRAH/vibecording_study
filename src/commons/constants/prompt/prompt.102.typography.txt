@@ -11,7 +11,7 @@
 조건-피그마) 활용할MCP: CursorTalkToFigmaMCP(채널명: d3euay9m)
 조건-피그마) 구현될 파운데이션 노드ID: 3459:1422
 
-조건-파일경로) 구현될 TS          파일경로: src\app\commons\constants\typography.ts
+조건-파일경로) 구현될 TS          파일경로: src\commons\constants\typography.ts
 조건-파일경로) 구현될 globals.css 파일경로: src\app\globals.css
 
 ==============================================

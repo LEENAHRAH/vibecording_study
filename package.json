@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.5",
     "cursor-talk-to-figma-socket": "^0.0.4",
     "next": "14.2.33",
+    "next-themes": "^0.4.6",
     "react": "^18",
     "react-dom": "^18"
   },

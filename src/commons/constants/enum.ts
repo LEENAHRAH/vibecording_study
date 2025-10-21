@@ -1,7 +1,7 @@
 // Emotion Enum - 감정 관련 열거형 및 설정
 // 프로젝트에서 사용되는 감정 데이터 타입 및 관련 정보
 
-import { colors } from '../../app/commons/constants/color';
+import { colors } from '@/commons/constants/color';
 
 // 감정 타입 열거형
 export enum EmotionType {

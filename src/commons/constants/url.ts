@@ -10,13 +10,13 @@ export const URLS = {
     LOGIN: '/auth/login',
     SIGNUP: '/auth/signup',
   },
-  
+
   // 일기 관련
   DIARIES: {
     LIST: '/diaries',
     DETAIL: '/diaries/[id]', // 다이나믹 라우팅
   },
-  
+
   // 사진 관련
   PICTURES: {
     LIST: '/pictures',
@@ -49,11 +49,14 @@ export interface UIVisibility {
 }
 
 // URL별 메타데이터
-export const URL_METADATA: Record<string, {
-  path: string;
-  accessLevel: AccessLevel;
-  uiVisibility: UIVisibility;
-}> = {
+export const URL_METADATA: Record<
+  string,
+  {
+    path: string;
+    accessLevel: AccessLevel;
+    uiVisibility: UIVisibility;
+  }
+> = {
   // 로그인
   LOGIN: {
     path: URLS.AUTH.LOGIN,
@@ -65,7 +68,7 @@ export const URL_METADATA: Record<string, {
       footer: false,
     },
   },
-  
+
   // 회원가입
   SIGNUP: {
     path: URLS.AUTH.SIGNUP,
@@ -77,7 +80,7 @@ export const URL_METADATA: Record<string, {
       footer: false,
     },
   },
-  
+
   // 일기목록
   DIARIES_LIST: {
     path: URLS.DIARIES.LIST,
@@ -89,7 +92,7 @@ export const URL_METADATA: Record<string, {
       footer: true,
     },
   },
-  
+
   // 일기상세
   DIARIES_DETAIL: {
     path: URLS.DIARIES.DETAIL,
@@ -101,7 +104,7 @@ export const URL_METADATA: Record<string, {
       footer: true,
     },
   },
-  
+
   // 사진목록
   PICTURES_LIST: {
     path: URLS.PICTURES.LIST,
@@ -126,7 +129,7 @@ export const urlUtils = {
   isCurrentPath: (currentPath: string, targetUrl: string): boolean => {
     return currentPath === targetUrl;
   },
-  
+
   /**
    * 다이나믹 라우팅 경로인지 확인
    * @param path 경로
@@ -135,7 +138,7 @@ export const urlUtils = {
   isDynamicRoute: (path: string): boolean => {
     return path.includes('[') && path.includes(']');
   },
-  
+
   /**
    * 다이나믹 라우팅 패턴과 실제 경로가 일치하는지 확인
    * @param pattern 패턴 (예: /diaries/[id])
@@ -145,11 +148,11 @@ export const urlUtils = {
   matchesDynamicRoute: (pattern: string, actualPath: string): boolean => {
     const patternParts = pattern.split('/');
     const actualParts = actualPath.split('/');
-    
+
     if (patternParts.length !== actualParts.length) {
       return false;
     }
-    
+
     return patternParts.every((part, index) => {
       if (part.startsWith('[') && part.endsWith(']')) {
         return true; // 다이나믹 세그먼트는 모든 값과 매치
@@ -157,7 +160,7 @@ export const urlUtils = {
       return part === actualParts[index];
     });
   },
-  
+
   /**
    * URL 메타데이터 조회
    * @param path 경로
@@ -165,12 +168,16 @@ export const urlUtils = {
    */
   getMetadata: (path: string) => {
     // 정확한 경로 매치 먼저 시도
-    const exactMatch = Object.values(URL_METADATA).find(meta => meta.path === path);
+    const exactMatch = Object.values(URL_METADATA).find(
+      (meta) => meta.path === path
+    );
     if (exactMatch) return exactMatch;
-    
+
     // 다이나믹 라우팅 매치 시도
-    const dynamicMatch = Object.values(URL_METADATA).find(meta => 
-      urlUtils.isDynamicRoute(meta.path) && urlUtils.matchesDynamicRoute(meta.path, path)
+    const dynamicMatch = Object.values(URL_METADATA).find(
+      (meta) =>
+        urlUtils.isDynamicRoute(meta.path) &&
+        urlUtils.matchesDynamicRoute(meta.path, path)
     );
     return dynamicMatch || null;
   },
