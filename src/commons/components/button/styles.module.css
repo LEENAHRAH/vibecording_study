@@ -1,0 +1,296 @@
+/* Button Base Styles */
+.button {
+  /* 기본 레이아웃 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  /* 기본 스타일 */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+
+  /* 트랜지션 */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* 포커스 스타일 */
+  outline: none;
+  position: relative;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-border-focus, #3b82f6);
+  outline-offset: 2px;
+}
+
+/* Button Text */
+.buttonText {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Button Icon */
+.buttonIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Loading Spinner - 애니메이션 제거 (룰 준수) */
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinnerCircle {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  /* 애니메이션 제거 - @02-wireframe.mdc 룰 준수 */
+}
+
+/* Size Variants */
+.button--small {
+  height: 32px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+.button--small .spinnerCircle {
+  width: 12px;
+  height: 12px;
+}
+
+.button--medium {
+  height: 40px;
+  padding: 8px 16px;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.button--medium .spinnerCircle {
+  width: 14px;
+  height: 14px;
+}
+
+.button--large {
+  height: 48px;
+  padding: 12px 24px;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.18px;
+}
+
+.button--large .spinnerCircle {
+  width: 16px;
+  height: 16px;
+}
+
+/* Primary Variant - Light Theme */
+.button--primary.button--light {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.button--primary.button--light:hover:not(:disabled) {
+  background-color: #1a1a1a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button--primary.button--light:active:not(:disabled) {
+  background-color: #333333;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary Variant - Dark Theme */
+.button--primary.button--dark {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.button--primary.button--dark:hover:not(:disabled) {
+  background-color: #f5f5f5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+.button--primary.button--dark:active:not(:disabled) {
+  background-color: #e5e5e5;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Secondary Variant - Light Theme */
+.button--secondary.button--light {
+  background-color: #f8fafc;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.button--secondary.button--light:hover:not(:disabled) {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.button--secondary.button--light:active:not(:disabled) {
+  background-color: #e2e8f0;
+  border-color: #94a3b8;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Secondary Variant - Dark Theme */
+.button--secondary.button--dark {
+  background-color: #1e293b;
+  color: #cbd5e1;
+  border: 1px solid #334155;
+}
+
+.button--secondary.button--dark:hover:not(:disabled) {
+  background-color: #334155;
+  border-color: #475569;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.button--secondary.button--dark:active:not(:disabled) {
+  background-color: #475569;
+  border-color: #64748b;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tertiary Variant - Light Theme */
+.button--tertiary.button--light {
+  background-color: transparent;
+  color: #334155;
+}
+
+.button--tertiary.button--light:hover:not(:disabled) {
+  background-color: #f8fafc;
+  transform: translateY(-1px);
+}
+
+.button--tertiary.button--light:active:not(:disabled) {
+  background-color: #f1f5f9;
+  transform: translateY(0);
+}
+
+/* Tertiary Variant - Dark Theme */
+.button--tertiary.button--dark {
+  background-color: transparent;
+  color: #cbd5e1;
+}
+
+.button--tertiary.button--dark:hover:not(:disabled) {
+  background-color: #1e293b;
+  transform: translateY(-1px);
+}
+
+.button--tertiary.button--dark:active:not(:disabled) {
+  background-color: #334155;
+  transform: translateY(0);
+}
+
+/* Full Width */
+.button--fullWidth {
+  width: 100%;
+}
+
+/* Loading State */
+.button--loading {
+  pointer-events: none;
+}
+
+.button--loading .buttonText {
+  opacity: 0.7;
+}
+
+/* Disabled State */
+.button--disabled,
+.button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Focus States for Accessibility */
+.button:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .button--primary.button--light {
+    border: 2px solid #ffffff;
+  }
+
+  .button--primary.button--dark {
+    border: 2px solid #000000;
+  }
+
+  .button--secondary.button--light,
+  .button--secondary.button--dark {
+    border-width: 2px;
+  }
+
+  .button--tertiary.button--light,
+  .button--tertiary.button--dark {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced Motion Support - 애니메이션 제거로 불필요 */
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .button--small {
+    height: 36px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .button--medium {
+    height: 44px;
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+
+  .button--large {
+    height: 52px;
+    padding: 14px 26px;
+    font-size: 16px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .button {
+    background: none !important;
+    color: black !important;
+    border: 1px solid black !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
