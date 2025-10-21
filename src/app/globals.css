@@ -40,6 +40,49 @@
   --color-status-warning: #f59e0b;
   --color-status-error: #ef4444;
   --color-status-info: #3b82f6;
+
+  /* Typography Tokens */
+  /* Font Families */
+  --font-family-korean: 'Pretendard', -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
+    'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', sans-serif;
+  --font-family-english: 'SUIT Variable', -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  --font-family-fallback: -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    'Helvetica Neue', 'Segoe UI', sans-serif;
+
+  /* Web Headlines */
+  --typography-web-headline-01: 600 48px/60px var(--font-family-korean);
+  --typography-web-headline-02: 600 36px/48px var(--font-family-korean);
+  --typography-web-headline-03: 600 28px/36px var(--font-family-korean);
+
+  /* Headlines */
+  --typography-headline-01: 700 24px/32px var(--font-family-korean);
+  --typography-headline-02: 800 22px/30px var(--font-family-korean);
+  --typography-headline-03: 700 20px/28px var(--font-family-korean);
+
+  /* Titles */
+  --typography-title-01: 700 18px/24px var(--font-family-korean);
+  --typography-title-02: 700 16px/22px var(--font-family-korean);
+  --typography-title-03: 700 14px/20px var(--font-family-korean);
+  --typography-subtitle-01: 600 14px/22px var(--font-family-korean);
+  --typography-subtitle-02: 600 12px/18px var(--font-family-korean);
+
+  /* Body Text */
+  --typography-body-01: 500 16px/24px var(--font-family-korean);
+  --typography-body-01-regular: 400 16px/22px var(--font-family-korean);
+  --typography-body-02-medium: 500 14px/22px var(--font-family-korean);
+  --typography-body-02-small: 400 14px/20px var(--font-family-korean);
+  --typography-body-03: 500 12px/18px var(--font-family-korean);
+  --typography-body-03-regular: 400 12px/16px var(--font-family-korean);
+
+  /* Caption */
+  --typography-caption-01: 600 12px/14px var(--font-family-korean);
+  --typography-caption-02-medium: 600 10px/12px var(--font-family-korean);
+  --typography-caption-02-small: 500 10px/12px var(--font-family-korean);
+  --typography-caption-03: 600 8px/10px var(--font-family-korean);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -84,14 +127,192 @@
   }
 }
 
+/* Mobile Typography Overrides */
+@media (max-width: 768px) {
+  :root {
+    /* Mobile Web Headlines */
+    --typography-web-headline-01: 600 32px/40px var(--font-family-korean);
+    --typography-web-headline-02: 600 28px/36px var(--font-family-korean);
+    --typography-web-headline-03: 600 24px/32px var(--font-family-korean);
+
+    /* Mobile Headlines */
+    --typography-headline-01: 700 20px/28px var(--font-family-korean);
+    --typography-headline-02: 800 18px/24px var(--font-family-korean);
+    --typography-headline-03: 700 16px/22px var(--font-family-korean);
+
+    /* Mobile Titles */
+    --typography-title-01: 700 16px/22px var(--font-family-korean);
+    --typography-title-02: 700 14px/20px var(--font-family-korean);
+    --typography-title-03: 700 12px/18px var(--font-family-korean);
+    --typography-subtitle-01: 600 12px/18px var(--font-family-korean);
+    --typography-subtitle-02: 600 10px/14px var(--font-family-korean);
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-korean);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Typography Utility Classes */
+  /* Web Headlines */
+  .typography-web-headline-01 {
+    font: var(--typography-web-headline-01);
+  }
+  .typography-web-headline-02 {
+    font: var(--typography-web-headline-02);
+  }
+  .typography-web-headline-03 {
+    font: var(--typography-web-headline-03);
+  }
+
+  /* Headlines */
+  .typography-headline-01 {
+    font: var(--typography-headline-01);
+  }
+  .typography-headline-02 {
+    font: var(--typography-headline-02);
+  }
+  .typography-headline-03 {
+    font: var(--typography-headline-03);
+  }
+
+  /* Titles */
+  .typography-title-01 {
+    font: var(--typography-title-01);
+  }
+  .typography-title-02 {
+    font: var(--typography-title-02);
+  }
+  .typography-title-03 {
+    font: var(--typography-title-03);
+  }
+  .typography-subtitle-01 {
+    font: var(--typography-subtitle-01);
+  }
+  .typography-subtitle-02 {
+    font: var(--typography-subtitle-02);
+  }
+
+  /* Body Text */
+  .typography-body-01 {
+    font: var(--typography-body-01);
+  }
+  .typography-body-01-regular {
+    font: var(--typography-body-01-regular);
+  }
+  .typography-body-02-medium {
+    font: var(--typography-body-02-medium);
+  }
+  .typography-body-02-small {
+    font: var(--typography-body-02-small);
+  }
+  .typography-body-03 {
+    font: var(--typography-body-03);
+  }
+  .typography-body-03-regular {
+    font: var(--typography-body-03-regular);
+  }
+
+  /* Caption */
+  .typography-caption-01 {
+    font: var(--typography-caption-01);
+  }
+  .typography-caption-02-medium {
+    font: var(--typography-caption-02-medium);
+  }
+  .typography-caption-02-small {
+    font: var(--typography-caption-02-small);
+  }
+  .typography-caption-03 {
+    font: var(--typography-caption-03);
+  }
+
+  /* Font Family Utilities */
+  .font-korean {
+    font-family: var(--font-family-korean);
+  }
+  .font-english {
+    font-family: var(--font-family-english);
+  }
+  .font-fallback {
+    font-family: var(--font-family-fallback);
+  }
+
+  /* Semantic Typography Classes */
+  .typography-page-title {
+    font: var(--typography-web-headline-01);
+  }
+  .typography-page-subtitle {
+    font: var(--typography-web-headline-02);
+  }
+  .typography-section-title {
+    font: var(--typography-headline-01);
+  }
+  .typography-section-subtitle {
+    font: var(--typography-headline-02);
+  }
+  .typography-content-title {
+    font: var(--typography-title-01);
+  }
+  .typography-content-subtitle {
+    font: var(--typography-title-02);
+  }
+  .typography-body-large {
+    font: var(--typography-body-01);
+  }
+  .typography-body-medium {
+    font: var(--typography-body-02-medium);
+  }
+  .typography-body-small {
+    font: var(--typography-body-03);
+  }
+  .typography-button-large {
+    font: var(--typography-title-01);
+  }
+  .typography-button-medium {
+    font: var(--typography-title-02);
+  }
+  .typography-button-small {
+    font: var(--typography-title-03);
+  }
+  .typography-input-label {
+    font: var(--typography-title-03);
+  }
+  .typography-input-text {
+    font: var(--typography-body-01);
+  }
+  .typography-helper-text {
+    font: var(--typography-caption-01);
+  }
+  .typography-nav-item {
+    font: var(--typography-title-02);
+  }
+  .typography-breadcrumb {
+    font: var(--typography-caption-01);
+  }
+  .typography-card-title {
+    font: var(--typography-title-01);
+  }
+  .typography-card-subtitle {
+    font: var(--typography-body-02-medium);
+  }
+  .typography-list-item {
+    font: var(--typography-body-01);
+  }
+  .typography-error-text {
+    font: var(--typography-caption-01);
+  }
+  .typography-success-text {
+    font: var(--typography-caption-01);
+  }
+  .typography-warning-text {
+    font: var(--typography-caption-01);
   }
 }
