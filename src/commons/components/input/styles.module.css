@@ -1,0 +1,330 @@
+/* Input Component Styles */
+
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: auto;
+}
+
+.container--full-width {
+  width: 100%;
+}
+
+/* Label */
+.label {
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.label--light {
+  color: #3f3f46;
+}
+
+.label--dark {
+  color: #f4f4f5;
+}
+
+.label--error {
+  color: #dc2626;
+}
+
+.label--disabled {
+  opacity: 0.5;
+}
+
+.required {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+/* Input Wrapper */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Input Base Styles */
+.input {
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  border: 1px solid;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.input::placeholder {
+  font-weight: 500;
+}
+
+/* Input Full Width */
+.input--full-width {
+  width: 100%;
+}
+
+/* Input with Icons */
+.input--with-left-icon {
+  padding-left: 40px;
+}
+
+.input--with-right-icon {
+  padding-right: 40px;
+}
+
+/* Icon Containers */
+.leftIcon,
+.rightIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.leftIcon {
+  left: 12px;
+}
+
+.rightIcon {
+  right: 12px;
+}
+
+/* Size Variants */
+.input--small {
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.input--medium {
+  height: 48px;
+  padding: 12px 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.input--large {
+  height: 56px;
+  padding: 16px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* Primary Variant - Light Theme */
+.input--primary.input--light {
+  background-color: #ffffff;
+  border-color: #d4d3d3;
+  color: #18181b;
+}
+
+.input--primary.input--light::placeholder {
+  color: #ababab;
+}
+
+.input--primary.input--light:hover {
+  border-color: #a1a1aa;
+}
+
+.input--primary.input--light:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+/* Primary Variant - Dark Theme */
+.input--primary.input--dark {
+  background-color: #27272a;
+  border-color: #52525b;
+  color: #f4f4f5;
+}
+
+.input--primary.input--dark::placeholder {
+  color: #71717a;
+}
+
+.input--primary.input--dark:hover {
+  border-color: #71717a;
+}
+
+.input--primary.input--dark:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+/* Secondary Variant - Light Theme */
+.input--secondary.input--light {
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
+  color: #1e293b;
+}
+
+.input--secondary.input--light::placeholder {
+  color: #94a3b8;
+}
+
+.input--secondary.input--light:hover {
+  border-color: #cbd5e1;
+}
+
+.input--secondary.input--light:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+/* Secondary Variant - Dark Theme */
+.input--secondary.input--dark {
+  background-color: #1e293b;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+
+.input--secondary.input--dark::placeholder {
+  color: #64748b;
+}
+
+.input--secondary.input--dark:hover {
+  border-color: #64748b;
+}
+
+.input--secondary.input--dark:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+/* Tertiary Variant - Light Theme */
+.input--tertiary.input--light {
+  background-color: transparent;
+  border-color: #d4d4d8;
+  color: #18181b;
+}
+
+.input--tertiary.input--light::placeholder {
+  color: #a1a1aa;
+}
+
+.input--tertiary.input--light:hover {
+  border-color: #a1a1aa;
+  background-color: #fafafa;
+}
+
+.input--tertiary.input--light:focus {
+  border-color: #71717a;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(113, 113, 122, 0.1);
+}
+
+/* Tertiary Variant - Dark Theme */
+.input--tertiary.input--dark {
+  background-color: transparent;
+  border-color: #52525b;
+  color: #f4f4f5;
+}
+
+.input--tertiary.input--dark::placeholder {
+  color: #71717a;
+}
+
+.input--tertiary.input--dark:hover {
+  border-color: #71717a;
+  background-color: #27272a;
+}
+
+.input--tertiary.input--dark:focus {
+  border-color: #a1a1aa;
+  background-color: #18181b;
+  box-shadow: 0 0 0 3px rgba(161, 161, 170, 0.1);
+}
+
+/* Error State */
+.input--error {
+  border-color: #dc2626 !important;
+}
+
+.input--error:focus {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+/* Disabled State */
+.input--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f4f4f5;
+}
+
+.input--disabled.input--dark {
+  background-color: #27272a;
+}
+
+.input--disabled:hover {
+  border-color: inherit !important;
+}
+
+/* Helper Text */
+.helper {
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.helper--light {
+  color: #71717a;
+}
+
+.helper--dark {
+  color: #a1a1aa;
+}
+
+.helper--error {
+  color: #dc2626;
+}
+
+/* Focus Visible for Accessibility */
+.input:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .input {
+    border-width: 2px;
+  }
+
+  .input:focus {
+    outline: 3px solid;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .input {
+    transition: none;
+  }
+}

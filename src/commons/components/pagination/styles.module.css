@@ -1,0 +1,188 @@
+/* Pagination Component Styles */
+/* Figma 디자인을 기반으로 한 완전한 variant 시스템 구현 */
+
+/* Base Pagination Container */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+  user-select: none;
+}
+
+/* Page Numbers Container */
+.pageNumbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Base Button Styles */
+.paginationButton,
+.navigationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  /* transition 제거 - wireframe 룰 준수 */
+  font-family: inherit;
+  outline: none;
+  position: relative;
+}
+
+.paginationButton:focus-visible,
+.navigationButton:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+/* ===== SIZE VARIANTS ===== */
+
+/* Small Size - 피그마 디자인에서 지원하지 않음, 제거 */
+
+/* Medium Size (Default - Figma Design) */
+.pagination--medium .paginationButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+
+.pagination--medium .navigationButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.pagination--medium .navigationButton svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Large Size - 피그마 디자인에서 지원하지 않음, 제거 */
+
+/* ===== FIGMA DESIGN STYLES ===== */
+
+/* Default Figma Design Styles */
+.paginationButton {
+  background-color: #ffffff;
+  color: #777777;
+  border: 1px solid transparent;
+}
+
+.paginationButton--active {
+  background-color: #f2f2f2;
+  color: #000000;
+  font-weight: 500;
+}
+
+.navigationButton {
+  background-color: #ffffff;
+  color: #777777;
+  border: 1px solid transparent;
+}
+
+/* ===== DISABLED STATES ===== */
+.paginationButton--disabled,
+.navigationButton--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.pagination--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ===== HOVER EFFECTS ===== */
+.paginationButton:hover:not(:disabled):not(.paginationButton--active) {
+  /* 애니메이션 제거 - wireframe 룰 준수 */
+}
+
+.navigationButton:hover:not(:disabled) {
+  /* 애니메이션 제거 - wireframe 룰 준수 */
+}
+
+/* ===== ACTIVE STATES ===== */
+.paginationButton:active:not(:disabled),
+.navigationButton:active:not(:disabled) {
+  /* 애니메이션 제거 - wireframe 룰 준수 */
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .pagination {
+    gap: 4px;
+  }
+
+  .pageNumbers {
+    gap: 4px;
+  }
+
+  /* Mobile에서는 medium 크기를 약간 작게 조정 */
+  .pagination--medium .paginationButton {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .pagination--medium .navigationButton {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+/* prefers-reduced-motion 미디어쿼리 제거 - 애니메이션 자체를 사용하지 않음 */
+
+/* High contrast mode support - 피그마 디자인 기반 단순화 */
+@media (prefers-contrast: high) {
+  .paginationButton {
+    border: 1px solid #000000;
+  }
+
+  .paginationButton--active {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .navigationButton {
+    border: 1px solid #000000;
+  }
+}
+
+/* ===== LOADING STATE ===== */
+.pagination--loading {
+  pointer-events: none;
+}
+
+.pagination--loading .paginationButton,
+.pagination--loading .navigationButton {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* ===== COMPACT MODE ===== */
+.pagination--compact {
+  gap: 2px;
+}
+
+.pagination--compact .pageNumbers {
+  gap: 2px;
+}
+
+/* ===== RTL SUPPORT ===== */
+[dir='rtl'] .pagination {
+  direction: rtl;
+}
+
+[dir='rtl'] .navigationButton svg {
+  transform: scaleX(-1);
+}
