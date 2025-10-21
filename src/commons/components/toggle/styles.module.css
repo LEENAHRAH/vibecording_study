@@ -1,0 +1,315 @@
+/* Toggle 컴포넌트 스타일 - Figma 디자인 기반 */
+
+/* CSS 변수 정의 */
+:root {
+  /* Primary Colors */
+  --toggle-primary-off: #e4e4e4;
+  --toggle-primary-on: #3ad84a;
+  --toggle-primary-thumb: #ffffff;
+  
+  /* Secondary Colors */
+  --toggle-secondary-off: #f1f5f9;
+  --toggle-secondary-on: #0ea5e9;
+  --toggle-secondary-thumb: #ffffff;
+  
+  /* Tertiary Colors */
+  --toggle-tertiary-off: #f8fafc;
+  --toggle-tertiary-on: #64748b;
+  --toggle-tertiary-thumb: #ffffff;
+  
+  /* Dark Theme Colors */
+  --toggle-dark-primary-off: #374151;
+  --toggle-dark-primary-on: #10b981;
+  --toggle-dark-primary-thumb: #ffffff;
+  
+  --toggle-dark-secondary-off: #1f2937;
+  --toggle-dark-secondary-on: #3b82f6;
+  --toggle-dark-secondary-thumb: #ffffff;
+  
+  --toggle-dark-tertiary-off: #111827;
+  --toggle-dark-tertiary-on: #6b7280;
+  --toggle-dark-tertiary-thumb: #ffffff;
+  
+  /* Disabled Colors */
+  --toggle-disabled-off: #f3f4f6;
+  --toggle-disabled-on: #d1d5db;
+  --toggle-disabled-thumb: #e5e7eb;
+  
+  /* Sizes */
+  --toggle-small-width: 44px;
+  --toggle-small-height: 24px;
+  --toggle-small-thumb: 18px;
+  --toggle-small-padding: 3px;
+  
+  --toggle-medium-width: 58px;
+  --toggle-medium-height: 32px;
+  --toggle-medium-thumb: 24px;
+  --toggle-medium-padding: 4px;
+  
+  --toggle-large-width: 72px;
+  --toggle-large-height: 40px;
+  --toggle-large-thumb: 30px;
+  --toggle-large-padding: 5px;
+  
+  /* Animation */
+  --toggle-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 기본 Toggle 스타일 */
+.toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: var(--toggle-transition);
+  outline: none;
+  padding: 0;
+  background: transparent;
+  
+  /* Focus 상태 */
+  &:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+  
+  /* Hover 상태 */
+  &:hover:not(:disabled) {
+    transform: scale(1.02);
+  }
+  
+  /* Active 상태 */
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+}
+
+/* Thumb (슬라이더) 스타일 */
+.thumb {
+  position: absolute;
+  border-radius: 50%;
+  transition: var(--toggle-transition);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Size Variants */
+.toggle--small {
+  width: var(--toggle-small-width);
+  height: var(--toggle-small-height);
+  padding: var(--toggle-small-padding);
+}
+
+.toggle--medium {
+  width: var(--toggle-medium-width);
+  height: var(--toggle-medium-height);
+  padding: var(--toggle-medium-padding);
+}
+
+.toggle--large {
+  width: var(--toggle-large-width);
+  height: var(--toggle-large-height);
+  padding: var(--toggle-large-padding);
+}
+
+.thumb--small {
+  width: var(--toggle-small-thumb);
+  height: var(--toggle-small-thumb);
+  left: var(--toggle-small-padding);
+}
+
+.thumb--medium {
+  width: var(--toggle-medium-thumb);
+  height: var(--toggle-medium-thumb);
+  left: var(--toggle-medium-padding);
+}
+
+.thumb--large {
+  width: var(--toggle-large-thumb);
+  height: var(--toggle-large-thumb);
+  left: var(--toggle-large-padding);
+}
+
+/* Primary Variant - Light Theme */
+.toggle--primary.toggle--light {
+  background-color: var(--toggle-primary-off);
+}
+
+.toggle--primary.toggle--light.toggle--checked {
+  background-color: var(--toggle-primary-on);
+}
+
+.thumb--primary.thumb--light {
+  background-color: var(--toggle-primary-thumb);
+}
+
+/* Primary Variant - Checked State Positioning */
+.toggle--primary.toggle--small.toggle--checked .thumb--small {
+  transform: translateX(calc(var(--toggle-small-width) - var(--toggle-small-thumb) - 2 * var(--toggle-small-padding)));
+}
+
+.toggle--primary.toggle--medium.toggle--checked .thumb--medium {
+  transform: translateX(calc(var(--toggle-medium-width) - var(--toggle-medium-thumb) - 2 * var(--toggle-medium-padding)));
+}
+
+.toggle--primary.toggle--large.toggle--checked .thumb--large {
+  transform: translateX(calc(var(--toggle-large-width) - var(--toggle-large-thumb) - 2 * var(--toggle-large-padding)));
+}
+
+/* Secondary Variant - Light Theme */
+.toggle--secondary.toggle--light {
+  background-color: var(--toggle-secondary-off);
+}
+
+.toggle--secondary.toggle--light.toggle--checked {
+  background-color: var(--toggle-secondary-on);
+}
+
+.thumb--secondary.thumb--light {
+  background-color: var(--toggle-secondary-thumb);
+}
+
+/* Secondary Variant - Checked State Positioning */
+.toggle--secondary.toggle--small.toggle--checked .thumb--small {
+  transform: translateX(calc(var(--toggle-small-width) - var(--toggle-small-thumb) - 2 * var(--toggle-small-padding)));
+}
+
+.toggle--secondary.toggle--medium.toggle--checked .thumb--medium {
+  transform: translateX(calc(var(--toggle-medium-width) - var(--toggle-medium-thumb) - 2 * var(--toggle-medium-padding)));
+}
+
+.toggle--secondary.toggle--large.toggle--checked .thumb--large {
+  transform: translateX(calc(var(--toggle-large-width) - var(--toggle-large-thumb) - 2 * var(--toggle-large-padding)));
+}
+
+/* Tertiary Variant - Light Theme */
+.toggle--tertiary.toggle--light {
+  background-color: var(--toggle-tertiary-off);
+}
+
+.toggle--tertiary.toggle--light.toggle--checked {
+  background-color: var(--toggle-tertiary-on);
+}
+
+.thumb--tertiary.thumb--light {
+  background-color: var(--toggle-tertiary-thumb);
+}
+
+/* Tertiary Variant - Checked State Positioning */
+.toggle--tertiary.toggle--small.toggle--checked .thumb--small {
+  transform: translateX(calc(var(--toggle-small-width) - var(--toggle-small-thumb) - 2 * var(--toggle-small-padding)));
+}
+
+.toggle--tertiary.toggle--medium.toggle--checked .thumb--medium {
+  transform: translateX(calc(var(--toggle-medium-width) - var(--toggle-medium-thumb) - 2 * var(--toggle-medium-padding)));
+}
+
+.toggle--tertiary.toggle--large.toggle--checked .thumb--large {
+  transform: translateX(calc(var(--toggle-large-width) - var(--toggle-large-thumb) - 2 * var(--toggle-large-padding)));
+}
+
+/* Dark Theme Variants */
+.toggle--primary.toggle--dark {
+  background-color: var(--toggle-dark-primary-off);
+}
+
+.toggle--primary.toggle--dark.toggle--checked {
+  background-color: var(--toggle-dark-primary-on);
+}
+
+.thumb--primary.thumb--dark {
+  background-color: var(--toggle-dark-primary-thumb);
+}
+
+.toggle--secondary.toggle--dark {
+  background-color: var(--toggle-dark-secondary-off);
+}
+
+.toggle--secondary.toggle--dark.toggle--checked {
+  background-color: var(--toggle-dark-secondary-on);
+}
+
+.thumb--secondary.thumb--dark {
+  background-color: var(--toggle-dark-secondary-thumb);
+}
+
+.toggle--tertiary.toggle--dark {
+  background-color: var(--toggle-dark-tertiary-off);
+}
+
+.toggle--tertiary.toggle--dark.toggle--checked {
+  background-color: var(--toggle-dark-tertiary-on);
+}
+
+.thumb--tertiary.thumb--dark {
+  background-color: var(--toggle-dark-tertiary-thumb);
+}
+
+/* Dark Theme - Checked State Positioning */
+.toggle--dark.toggle--small.toggle--checked .thumb--small {
+  transform: translateX(calc(var(--toggle-small-width) - var(--toggle-small-thumb) - 2 * var(--toggle-small-padding)));
+}
+
+.toggle--dark.toggle--medium.toggle--checked .thumb--medium {
+  transform: translateX(calc(var(--toggle-medium-width) - var(--toggle-medium-thumb) - 2 * var(--toggle-medium-padding)));
+}
+
+.toggle--dark.toggle--large.toggle--checked .thumb--large {
+  transform: translateX(calc(var(--toggle-large-width) - var(--toggle-large-thumb) - 2 * var(--toggle-large-padding)));
+}
+
+/* Disabled State */
+.toggle--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: var(--toggle-disabled-off) !important;
+}
+
+.toggle--disabled.toggle--checked {
+  background-color: var(--toggle-disabled-on) !important;
+}
+
+.thumb--disabled {
+  background-color: var(--toggle-disabled-thumb) !important;
+}
+
+.toggle--disabled:hover {
+  transform: none !important;
+}
+
+.toggle--disabled:active {
+  transform: none !important;
+}
+
+/* 접근성 개선 */
+@media (prefers-reduced-motion: reduce) {
+  .toggle,
+  .thumb {
+    transition: none;
+  }
+}
+
+/* 고대비 모드 지원 */
+@media (prefers-contrast: high) {
+  .toggle {
+    border: 2px solid currentColor;
+  }
+  
+  .thumb {
+    border: 1px solid currentColor;
+  }
+}
+
+/* 모바일 터치 최적화 */
+@media (hover: none) and (pointer: coarse) {
+  .toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .toggle:hover {
+    transform: none;
+  }
+}
+

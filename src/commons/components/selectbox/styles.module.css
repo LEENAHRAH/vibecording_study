@@ -1,0 +1,718 @@
+/* SelectBox Component Styles */
+/* Figma 디자인을 기반으로 한 완전한 variant 시스템 */
+
+/* =================================== */
+/* Container Styles */
+/* =================================== */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  width: auto;
+}
+
+.container--full-width {
+  width: 100%;
+}
+
+/* =================================== */
+/* Label Styles */
+/* =================================== */
+
+.label {
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.label--light {
+  color: #1c1c1c;
+}
+
+.label--dark {
+  color: #ffffff;
+}
+
+.label--error {
+  color: #ef4444;
+}
+
+.label--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.required {
+  color: #ef4444;
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* =================================== */
+/* Select Box Base Styles */
+/* =================================== */
+
+.select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid;
+  background: transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+  outline: none;
+  user-select: none;
+}
+
+.select:focus-visible {
+  outline: 2px solid;
+  outline-offset: 2px;
+}
+
+.select--full-width {
+  width: 100%;
+}
+
+.select--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.select--loading {
+  cursor: wait;
+}
+
+/* =================================== */
+/* Size Variants */
+/* =================================== */
+
+/* Small Size */
+.select--small {
+  height: 36px;
+  padding: 0 12px;
+  font-size: 14px;
+  line-height: 20px;
+  min-width: 120px;
+}
+
+/* Medium Size */
+.select--medium {
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  line-height: 24px;
+  min-width: 160px;
+}
+
+/* Large Size */
+.select--large {
+  height: 56px;
+  padding: 0 20px;
+  font-size: 18px;
+  line-height: 28px;
+  min-width: 200px;
+}
+
+/* =================================== */
+/* Variant Styles - Light Theme */
+/* =================================== */
+
+/* Primary Variant - Light */
+.select--primary.select--light {
+  background: #ffffff;
+  border-color: #c7c7c7;
+  color: #1c1c1c;
+}
+
+.select--primary.select--light:hover:not(.select--disabled) {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 1px #0ea5e9;
+}
+
+.select--primary.select--light:focus-visible {
+  border-color: #0ea5e9;
+  outline-color: #0ea5e9;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+}
+
+.select--primary.select--light.select--open {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 1px #0ea5e9;
+}
+
+.select--primary.select--light.select--error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 1px #ef4444;
+}
+
+/* Secondary Variant - Light */
+.select--secondary.select--light {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #1c1c1c;
+}
+
+.select--secondary.select--light:hover:not(.select--disabled) {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.select--secondary.select--light:focus-visible {
+  border-color: #64748b;
+  outline-color: #64748b;
+  box-shadow: 0 0 0 2px rgba(100, 116, 139, 0.2);
+}
+
+.select--secondary.select--light.select--open {
+  background: #f1f5f9;
+  border-color: #64748b;
+}
+
+.select--secondary.select--light.select--error {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+/* Tertiary Variant - Light */
+.select--tertiary.select--light {
+  background: transparent;
+  border-color: transparent;
+  color: #1c1c1c;
+  border-bottom: 2px solid #e2e8f0;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.select--tertiary.select--light:hover:not(.select--disabled) {
+  border-bottom-color: #cbd5e1;
+}
+
+.select--tertiary.select--light:focus-visible {
+  border-bottom-color: #0ea5e9;
+  outline: none;
+  box-shadow: 0 1px 0 0 #0ea5e9;
+}
+
+.select--tertiary.select--light.select--open {
+  border-bottom-color: #0ea5e9;
+}
+
+.select--tertiary.select--light.select--error {
+  border-bottom-color: #ef4444;
+}
+
+/* =================================== */
+/* Variant Styles - Dark Theme */
+/* =================================== */
+
+/* Primary Variant - Dark */
+.select--primary.select--dark {
+  background: #18181b;
+  border-color: #3f3f46;
+  color: #ffffff;
+}
+
+.select--primary.select--dark:hover:not(.select--disabled) {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 1px #60a5fa;
+}
+
+.select--primary.select--dark:focus-visible {
+  border-color: #60a5fa;
+  outline-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+.select--primary.select--dark.select--open {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 1px #60a5fa;
+}
+
+.select--primary.select--dark.select--error {
+  border-color: #f87171;
+  box-shadow: 0 0 0 1px #f87171;
+}
+
+/* Secondary Variant - Dark */
+.select--secondary.select--dark {
+  background: #27272a;
+  border-color: #52525b;
+  color: #ffffff;
+}
+
+.select--secondary.select--dark:hover:not(.select--disabled) {
+  background: #3f3f46;
+  border-color: #71717a;
+}
+
+.select--secondary.select--dark:focus-visible {
+  border-color: #a1a1aa;
+  outline-color: #a1a1aa;
+  box-shadow: 0 0 0 2px rgba(161, 161, 170, 0.2);
+}
+
+.select--secondary.select--dark.select--open {
+  background: #3f3f46;
+  border-color: #a1a1aa;
+}
+
+.select--secondary.select--dark.select--error {
+  border-color: #f87171;
+  background: #450a0a;
+}
+
+/* Tertiary Variant - Dark */
+.select--tertiary.select--dark {
+  background: transparent;
+  border-color: transparent;
+  color: #ffffff;
+  border-bottom: 2px solid #52525b;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.select--tertiary.select--dark:hover:not(.select--disabled) {
+  border-bottom-color: #71717a;
+}
+
+.select--tertiary.select--dark:focus-visible {
+  border-bottom-color: #60a5fa;
+  outline: none;
+  box-shadow: 0 1px 0 0 #60a5fa;
+}
+
+.select--tertiary.select--dark.select--open {
+  border-bottom-color: #60a5fa;
+}
+
+.select--tertiary.select--dark.select--error {
+  border-bottom-color: #f87171;
+}
+
+/* =================================== */
+/* Display Area Styles */
+/* =================================== */
+
+.display {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.displayText {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  letter-spacing: -0.16px;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.select--dark .searchInput::placeholder {
+  color: #71717a;
+}
+
+/* =================================== */
+/* Icon Container Styles */
+/* =================================== */
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.dropdownIcon {
+  width: 24px;
+  height: 24px;
+  color: #64748b;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.select--open .dropdownIcon {
+  transform: rotate(180deg);
+}
+
+.select--dark .dropdownIcon {
+  color: #a1a1aa;
+}
+
+.select--disabled .dropdownIcon {
+  opacity: 0.5;
+}
+
+/* =================================== */
+/* Loading Spinner Styles */
+/* =================================== */
+
+.loadingSpinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.spinnerCircle {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =================================== */
+/* Dropdown Styles */
+/* =================================== */
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-height: 240px;
+  overflow-y: auto;
+  animation: dropdownSlideIn 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.select--dark .dropdown {
+  background: #27272a;
+  border-color: #52525b;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes dropdownSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================== */
+/* Option Group Styles */
+/* =================================== */
+
+.optionGroup {
+  /* 그룹 컨테이너 */
+}
+
+.groupLabel {
+  padding: 8px 16px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.select--dark .groupLabel {
+  color: #a1a1aa;
+  border-bottom-color: #3f3f46;
+}
+
+/* =================================== */
+/* Option Styles */
+/* =================================== */
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #1c1c1c;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid transparent;
+}
+
+.option:hover:not(.option--disabled) {
+  background: #f8fafc;
+  color: #0ea5e9;
+}
+
+.option--selected {
+  background: #eff6ff;
+  color: #0ea5e9;
+  font-weight: 600;
+}
+
+.option--selected:hover {
+  background: #dbeafe;
+}
+
+.option--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: #94a3b8;
+}
+
+/* Dark theme options */
+.select--dark .option {
+  color: #ffffff;
+}
+
+.select--dark .option:hover:not(.option--disabled) {
+  background: #3f3f46;
+  color: #60a5fa;
+}
+
+.select--dark .option--selected {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+.select--dark .option--selected:hover {
+  background: #1e40af;
+}
+
+.select--dark .option--disabled {
+  color: #71717a;
+}
+
+/* =================================== */
+/* Checkbox Styles (for multiple selection) */
+/* =================================== */
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #cbd5e1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option--selected .checkbox {
+  background: #0ea5e9;
+  border-color: #0ea5e9;
+  color: #ffffff;
+}
+
+.select--dark .checkbox {
+  border-color: #52525b;
+}
+
+.select--dark .option--selected .checkbox {
+  background: #60a5fa;
+  border-color: #60a5fa;
+  color: #1e3a8a;
+}
+
+/* =================================== */
+/* Option Label Styles */
+/* =================================== */
+
+.optionLabel {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =================================== */
+/* No Options Styles */
+/* =================================== */
+
+.noOptions {
+  padding: 16px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.select--dark .noOptions {
+  color: #71717a;
+}
+
+/* =================================== */
+/* Hidden Select (for form submission) */
+/* =================================== */
+
+.hiddenSelect {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* =================================== */
+/* Helper Text Styles */
+/* =================================== */
+
+.helper {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.helper--light {
+  color: #64748b;
+}
+
+.helper--dark {
+  color: #a1a1aa;
+}
+
+.helper--error {
+  color: #ef4444;
+}
+
+/* =================================== */
+/* Responsive Design */
+/* =================================== */
+
+@media (max-width: 768px) {
+  .select--small {
+    height: 40px;
+    min-width: 100px;
+  }
+
+  .select--medium {
+    height: 44px;
+    min-width: 120px;
+  }
+
+  .select--large {
+    height: 52px;
+    min-width: 140px;
+  }
+
+  .dropdown {
+    max-height: 200px;
+  }
+
+  .option {
+    padding: 10px 12px;
+  }
+}
+
+/* =================================== */
+/* High Contrast Mode Support */
+/* =================================== */
+
+@media (prefers-contrast: high) {
+  .select {
+    border-width: 2px;
+  }
+
+  .option--selected {
+    outline: 2px solid;
+    outline-offset: -2px;
+  }
+}
+
+/* =================================== */
+/* Reduced Motion Support */
+/* =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .select,
+  .dropdownIcon,
+  .option,
+  .checkbox {
+    transition: none;
+  }
+
+  .dropdown {
+    animation: none;
+  }
+
+  .spinnerCircle {
+    animation: none;
+  }
+}
+
+/* =================================== */
+/* Focus Management */
+/* =================================== */
+
+.select:focus-visible {
+  z-index: 1;
+}
+
+/* =================================== */
+/* Print Styles */
+/* =================================== */
+
+@media print {
+  .dropdown {
+    display: none;
+  }
+
+  .select {
+    border: 1px solid #000;
+    background: #fff;
+    color: #000;
+  }
+}
+
+
+

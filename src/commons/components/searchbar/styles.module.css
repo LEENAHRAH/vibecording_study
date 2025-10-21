@@ -1,0 +1,365 @@
+/* SearchBar 컨테이너 기본 스타일 */
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 100px;
+  border: 1px solid #c7c7c7;
+  background-color: #ffffff;
+  /* 트랜지션 제거 - @02-wireframe.mdc 룰 준수 */
+}
+
+.container:focus-within {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* 컨테이너 크기 변형 */
+.container--small {
+  height: 36px;
+  padding: 0 12px;
+}
+
+.container--medium {
+  height: 48px;
+  padding: 0 16px;
+}
+
+.container--large {
+  height: 56px;
+  padding: 0 20px;
+}
+
+/* 컨테이너 variant 스타일 */
+.container--primary {
+  border-color: #c7c7c7;
+  background-color: #ffffff;
+}
+
+.container--primary:hover {
+  border-color: #999999;
+}
+
+.container--primary:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.container--secondary {
+  border-color: #e0e0e0;
+  background-color: #f8f9fa;
+}
+
+.container--secondary:hover {
+  border-color: #c0c0c0;
+  background-color: #f0f1f2;
+}
+
+.container--secondary:focus-within {
+  border-color: #007bff;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.container--tertiary {
+  border-color: transparent;
+  background-color: #f5f5f5;
+}
+
+.container--tertiary:hover {
+  background-color: #eeeeee;
+}
+
+.container--tertiary:focus-within {
+  border-color: #007bff;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* 테마 스타일 */
+.container--light {
+  /* 기본 라이트 테마는 위에서 정의됨 */
+}
+
+.container--dark {
+  border-color: #404040;
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.container--dark:hover {
+  border-color: #606060;
+}
+
+.container--dark:focus-within {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.container--dark.container--secondary {
+  border-color: #505050;
+  background-color: #3a3a3a;
+}
+
+.container--dark.container--tertiary {
+  border-color: transparent;
+  background-color: #404040;
+}
+
+/* 상태 스타일 */
+.container--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.container--loading {
+  cursor: wait;
+}
+
+.container--full-width {
+  width: 100%;
+}
+
+/* 입력 필드 스타일 */
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+  font-weight: 500;
+  color: inherit;
+  width: 100%;
+  min-width: 0;
+}
+
+.input::placeholder {
+  color: #ababab;
+  font-weight: 500;
+}
+
+/* 입력 필드 크기 */
+.input--small {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+}
+
+.input--medium {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+
+.input--large {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+}
+
+/* 입력 필드 테마 */
+.input--light {
+  color: #333333;
+}
+
+.input--light::placeholder {
+  color: #ababab;
+}
+
+.input--dark {
+  color: #ffffff;
+}
+
+.input--dark::placeholder {
+  color: #888888;
+}
+
+/* 입력 필드 상태 */
+.input--disabled {
+  cursor: not-allowed;
+}
+
+/* 아이콘이 있을 때 입력 필드 여백 */
+.input--with-search-icon {
+  margin-left: 8px;
+}
+
+.input--with-clear-button {
+  margin-right: 8px;
+}
+
+/* 검색 버튼 스타일 */
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: #666666;
+  transition: color 0.2s ease-in-out;
+  flex-shrink: 0;
+}
+
+.searchButton:hover:not(:disabled) {
+  color: #007bff;
+}
+
+.searchButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* 클리어 버튼 스타일 */
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px;
+  color: #999999;
+  /* 트랜지션 제거 - @02-wireframe.mdc 룰 준수 */
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.clearButton:hover:not(:disabled) {
+  color: #666666;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.clearButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* 다크 테마 버튼 스타일 */
+.container--dark .searchButton {
+  color: #cccccc;
+}
+
+.container--dark .searchButton:hover:not(:disabled) {
+  color: #0d6efd;
+}
+
+.container--dark .clearButton {
+  color: #999999;
+}
+
+.container--dark .clearButton:hover:not(:disabled) {
+  color: #cccccc;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 아이콘 SVG 스타일 */
+.searchIconSvg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.clearIconSvg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* 크기별 아이콘 조정 */
+.container--small .searchIconSvg {
+  width: 20px;
+  height: 20px;
+}
+
+.container--small .clearIconSvg {
+  width: 16px;
+  height: 16px;
+}
+
+.container--large .searchIconSvg {
+  width: 28px;
+  height: 28px;
+}
+
+.container--large .clearIconSvg {
+  width: 24px;
+  height: 24px;
+}
+
+/* 로딩 스피너 스타일 */
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinnerCircle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  /* 애니메이션 제거 - @02-wireframe.mdc 룰 준수 */
+}
+
+.container--small .spinnerCircle {
+  width: 16px;
+  height: 16px;
+  border-width: 1.5px;
+}
+
+.container--large .spinnerCircle {
+  width: 24px;
+  height: 24px;
+  border-width: 2.5px;
+}
+
+.container--dark .spinnerCircle {
+  border-color: #555555;
+  border-top-color: #0d6efd;
+}
+
+/* @keyframes 애니메이션 제거 - @02-wireframe.mdc 룰 준수 */
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .container--medium {
+    height: 44px;
+    padding: 0 14px;
+  }
+
+  .container--large {
+    height: 52px;
+    padding: 0 18px;
+  }
+
+  .input--medium {
+    font-size: 15px;
+  }
+
+  .input--large {
+    font-size: 17px;
+  }
+}
+
+/* prefers-reduced-motion 미디어쿼리 제거 - @02-wireframe.mdc 룰 준수로 애니메이션 없음 */
+
+/* 고대비 모드 지원 */
+@media (prefers-contrast: high) {
+  .container {
+    border-width: 2px;
+  }
+
+  .container--primary {
+    border-color: #000000;
+  }
+
+  .container--dark {
+    border-color: #ffffff;
+  }
+}
