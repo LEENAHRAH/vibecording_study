@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 const meta: Meta<typeof Toggle> = {
   title: 'Commons/Components/Toggle',
   component: Toggle,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     docs: {
@@ -107,12 +108,26 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   name: '기본',
   args: {},
+  parameters: {
+    docs: {
+      description: {
+        story: '기본 설정의 Toggle 컴포넌트입니다. Primary variant, Medium size, Light theme이 기본값입니다.',
+      },
+    },
+  },
 };
 
 export const Checked: Story = {
   name: '체크됨',
   args: {
     defaultChecked: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '초기에 활성화된 상태의 Toggle입니다. defaultChecked prop을 사용하여 비제어 컴포넌트로 동작합니다.',
+      },
+    },
   },
 };
 
@@ -121,6 +136,13 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: '비활성화된 Toggle입니다. 사용자가 상태를 변경할 수 없으며, 시각적으로 비활성 상태를 나타냅니다.',
+      },
+    },
+  },
 };
 
 export const DisabledChecked: Story = {
@@ -128,6 +150,13 @@ export const DisabledChecked: Story = {
   args: {
     disabled: true,
     defaultChecked: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '활성화된 상태이지만 비활성화된 Toggle입니다. 사용자가 상태를 변경할 수 없습니다.',
+      },
+    },
   },
 };
 
@@ -138,6 +167,13 @@ export const VariantPrimary: Story = {
     variant: 'primary',
     defaultChecked: true,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Primary variant의 Toggle입니다. 가장 높은 시각적 중요도를 가지며, 주요 설정에 사용됩니다.',
+      },
+    },
+  },
 };
 
 export const VariantSecondary: Story = {
@@ -145,6 +181,13 @@ export const VariantSecondary: Story = {
   args: {
     variant: 'secondary',
     defaultChecked: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Secondary variant의 Toggle입니다. 보조 설정이나 덮은 중요도의 옵션에 사용됩니다.',
+      },
+    },
   },
 };
 

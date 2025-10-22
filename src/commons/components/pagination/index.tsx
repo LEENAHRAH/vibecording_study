@@ -12,8 +12,12 @@ export interface PaginationProps {
   totalPages: number;
   /** 페이지 변경 시 호출되는 콜백 함수 */
   onPageChange: (page: number) => void;
-  /** 컴포넌트 크기 (피그마 디자인은 medium만 지원) */
-  size?: 'medium';
+  /** 컴포넌트 variant */
+  variant?: 'primary' | 'secondary' | 'tertiary';
+  /** 컴포넌트 크기 */
+  size?: 'small' | 'medium' | 'large';
+  /** 테마 */
+  theme?: 'light' | 'dark';
   /** 표시할 페이지 번호의 최대 개수 */
   maxVisiblePages?: number;
   /** 이전/다음 버튼 표시 여부 */
@@ -38,7 +42,9 @@ export const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   onPageChange,
+  variant = 'primary',
   size = 'medium',
+  theme = 'light',
   maxVisiblePages = 5,
   showNavigationButtons = true,
   showFirstLastButtons = false,
@@ -104,10 +110,12 @@ export const Pagination: React.FC<PaginationProps> = ({
     handlePageChange(totalPages);
   };
 
-  // CSS 클래스 조합 (피그마 디자인 기반 단순화)
+  // CSS 클래스 조합 (완전한 variant 시스템)
   const containerClasses = [
     styles.pagination,
+    styles[`pagination--${variant}`],
     styles[`pagination--${size}`],
+    styles[`pagination--${theme}`],
     disabled && styles['pagination--disabled'],
     className,
   ]
@@ -117,7 +125,9 @@ export const Pagination: React.FC<PaginationProps> = ({
   const buttonClasses = (isActive: boolean, isDisabled: boolean = false) =>
     [
       styles.paginationButton,
+      styles[`paginationButton--${variant}`],
       styles[`paginationButton--${size}`],
+      styles[`paginationButton--${theme}`],
       isActive && styles['paginationButton--active'],
       isDisabled && styles['paginationButton--disabled'],
     ]
@@ -127,11 +137,33 @@ export const Pagination: React.FC<PaginationProps> = ({
   const navigationClasses = (isDisabled: boolean = false) =>
     [
       styles.navigationButton,
+      styles[`navigationButton--${variant}`],
       styles[`navigationButton--${size}`],
+      styles[`navigationButton--${theme}`],
       isDisabled && styles['navigationButton--disabled'],
     ]
       .filter(Boolean)
       .join(' ');
+
+  // Single page 처리 (Figma 디자인에 맞춤)
+  if (totalPages === 1) {
+    return (
+      <nav className={containerClasses} aria-label={ariaLabel} role="navigation">
+        <div className={styles.pageNumbers}>
+          <button
+            type="button"
+            className={buttonClasses(true, disabled)}
+            onClick={() => handlePageChange(1)}
+            disabled={disabled}
+            aria-label="1페이지"
+            aria-current="page"
+          >
+            1
+          </button>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav className={containerClasses} aria-label={ariaLabel} role="navigation">

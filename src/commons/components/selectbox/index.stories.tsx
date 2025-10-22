@@ -62,6 +62,7 @@ const statusOptions = [
 const meta: Meta<typeof SelectBox> = {
   title: 'Commons/Components/SelectBox',
   component: SelectBox,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     docs: {
@@ -170,6 +171,13 @@ export const Default: Story = {
     options: basicOptions,
     placeholder: '기본 셀렉트박스',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: '기본 설정의 SelectBox 컴포넌트입니다. Primary variant, Medium size, Light theme이 기본값입니다.',
+      },
+    },
+  },
 };
 
 // Variant 스토리들
@@ -179,6 +187,13 @@ export const Primary: Story = {
     options: basicOptions,
     placeholder: 'Primary 셀렉트박스',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Primary variant의 셀렉트박스입니다. 가장 높은 시각적 중요도를 가지며, 주요 선택 옵션에 사용됩니다.',
+      },
+    },
+  },
 };
 
 export const Secondary: Story = {
@@ -187,6 +202,13 @@ export const Secondary: Story = {
     options: basicOptions,
     placeholder: 'Secondary 셀렉트박스',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Secondary variant의 셀렉트박스입니다. 보조 선택 옵션이나 필터링에 사용됩니다.',
+      },
+    },
+  },
 };
 
 export const Tertiary: Story = {
@@ -194,6 +216,13 @@ export const Tertiary: Story = {
     variant: 'tertiary',
     options: basicOptions,
     placeholder: 'Tertiary 셀렉트박스',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tertiary variant의 셀렉트박스입니다. 가장 낮은 시각적 중요도를 가지며, 미니멀한 선택 UI에 사용됩니다.',
+      },
+    },
   },
 };
 

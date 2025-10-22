@@ -26,6 +26,7 @@ const LocationIcon = () => (
 const meta: Meta<typeof SearchBar> = {
   title: 'Commons/Components/SearchBar',
   component: SearchBar,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     docs: {
@@ -108,6 +109,13 @@ export const Default: Story = {
   args: {
     placeholder: '기본 검색바',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: '기본 설정의 SearchBar 컴포넌트입니다. Primary variant, Medium size, Light theme이 기본값입니다.',
+      },
+    },
+  },
 };
 
 // Variant 스토리들
@@ -116,6 +124,13 @@ export const Primary: Story = {
     variant: 'primary',
     placeholder: 'Primary 검색바',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Primary variant의 검색바입니다. 가장 높은 시각적 중요도를 가지며, 주요 검색 기능에 사용됩니다.',
+      },
+    },
+  },
 };
 
 export const Secondary: Story = {
@@ -123,12 +138,26 @@ export const Secondary: Story = {
     variant: 'secondary',
     placeholder: 'Secondary 검색바',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Secondary variant의 검색바입니다. 보조 검색이나 필터링 기능에 사용됩니다.',
+      },
+    },
+  },
 };
 
 export const Tertiary: Story = {
   args: {
     variant: 'tertiary',
     placeholder: 'Tertiary 검색바',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tertiary variant의 검색바입니다. 가장 낮은 시각적 중요도를 가지며, 미니멀한 검색 UI에 사용됩니다.',
+      },
+    },
   },
 };
 
@@ -138,6 +167,13 @@ export const Small: Story = {
     size: 'small',
     placeholder: 'Small 크기',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Small 크기의 검색바입니다. 제한된 공간이나 작은 UI 요소에 적합합니다.',
+      },
+    },
+  },
 };
 
 export const Medium: Story = {
@@ -145,12 +181,26 @@ export const Medium: Story = {
     size: 'medium',
     placeholder: 'Medium 크기',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Medium 크기의 검색바입니다. 가장 일반적으로 사용되는 기본 크기입니다.',
+      },
+    },
+  },
 };
 
 export const Large: Story = {
   args: {
     size: 'large',
     placeholder: 'Large 크기',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Large 크기의 검색바입니다. 중요한 검색 기능이나 넓은 공간에 적합합니다.',
+      },
+    },
   },
 };
 
@@ -162,6 +212,11 @@ export const LightTheme: Story = {
   },
   parameters: {
     backgrounds: { default: 'light' },
+    docs: {
+      description: {
+        story: 'Light 테마의 검색바입니다. 밝은 배경에서 사용하기 적합합니다.',
+      },
+    },
   },
 };
 
@@ -172,6 +227,11 @@ export const DarkTheme: Story = {
   },
   parameters: {
     backgrounds: { default: 'dark' },
+    docs: {
+      description: {
+        story: 'Dark 테마의 검색바입니다. 어두운 배경에서 사용하기 적합합니다.',
+      },
+    },
   },
 };
 

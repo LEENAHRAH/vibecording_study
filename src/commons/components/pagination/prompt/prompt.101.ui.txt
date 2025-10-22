@@ -10,8 +10,8 @@
 
 ==============================================
 
-조건-피그마) 활용할MCP: CursorTalkToFigmaMCP(채널명: d3euay9m)
-조건-피그마) 참고할 공통컴포넌트 노드ID: 3:1693
+조건-피그마) 활용할MCP: CursorTalkToFigmaMCP(채널명: baprkxr6)
+조건-피그마) 참고할 공통컴포넌트 노드ID: 3:1887
 
 조건-파일경로) 구현될 TSX 파일경로: src/commons/components/pagination/index.tsx
 조건-파일경로) 구현될 CSS 파일경로: src/commons/components/pagination/styles.module.css
@@ -24,3 +24,7 @@
             - variant: 'primary' | 'secondary' | 'tertiary'
             - size: 'small' | 'medium' | 'large'
             - theme: 'light' | 'dark'
+
+==============================================
+
+핵심요구사항) single page의 경우 피그마와 디자인이 다른데 동일하게 변경할 것 ✅ 완료

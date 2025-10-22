@@ -26,6 +26,7 @@ const DownloadIcon = () => (
 const meta: Meta<typeof Button> = {
   title: 'Commons/Components/Button',
   component: Button,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     docs: {
@@ -103,6 +104,13 @@ export const Default: Story = {
   args: {
     children: 'Default Button',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: '기본 설정으로 렌더링되는 버튼입니다. Primary variant, Medium size, Light theme이 기본값입니다.',
+      },
+    },
+  },
 };
 
 // Variant 스토리들
@@ -111,6 +119,13 @@ export const Primary: Story = {
     variant: 'primary',
     children: 'Primary Button',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Primary variant는 주요 액션을 나타내는 버튼입니다. 가장 높은 시각적 중요도를 가집니다.',
+      },
+    },
+  },
 };
 
 export const Secondary: Story = {
@@ -118,12 +133,26 @@ export const Secondary: Story = {
     variant: 'secondary',
     children: 'Secondary Button',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Secondary variant는 보조 액션을 나타내는 버튼입니다. Primary보다 낮은 시각적 중요도를 가집니다.',
+      },
+    },
+  },
 };
 
 export const Tertiary: Story = {
   args: {
     variant: 'tertiary',
     children: 'Tertiary Button',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tertiary variant는 가장 낮은 시각적 중요도를 가지는 버튼입니다. 텍스트 링크와 유사한 스타일입니다.',
+      },
+    },
   },
 };
 
@@ -133,6 +162,13 @@ export const Small: Story = {
     size: 'small',
     children: 'Small Button',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Small 크기의 버튼입니다. 제한된 공간이나 작은 UI 요소에 적합합니다.',
+      },
+    },
+  },
 };
 
 export const Medium: Story = {
@@ -140,12 +176,26 @@ export const Medium: Story = {
     size: 'medium',
     children: 'Medium Button',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Medium 크기의 버튼입니다. 가장 일반적으로 사용되는 기본 크기입니다.',
+      },
+    },
+  },
 };
 
 export const Large: Story = {
   args: {
     size: 'large',
     children: 'Large Button',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Large 크기의 버튼입니다. 중요한 액션이나 넓은 공간에 적합합니다.',
+      },
+    },
   },
 };
 
@@ -157,6 +207,11 @@ export const LightTheme: Story = {
   },
   parameters: {
     backgrounds: { default: 'light' },
+    docs: {
+      description: {
+        story: 'Light 테마의 버튼입니다. 밝은 배경에서 사용하기 적합합니다.',
+      },
+    },
   },
 };
 
@@ -167,6 +222,11 @@ export const DarkTheme: Story = {
   },
   parameters: {
     backgrounds: { default: 'dark' },
+    docs: {
+      description: {
+        story: 'Dark 테마의 버튼입니다. 어두운 배경에서 사용하기 적합합니다.',
+      },
+    },
   },
 };
 
@@ -177,6 +237,13 @@ export const WithLeftIcon: Story = {
     iconPosition: 'left',
     children: 'Add Item',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: '좌측에 아이콘이 있는 버튼입니다. 아이콘이 텍스트와 함께 의미를 전달할 때 사용합니다.',
+      },
+    },
+  },
 };
 
 export const WithRightIcon: Story = {
@@ -184,6 +251,13 @@ export const WithRightIcon: Story = {
     icon: <DownloadIcon />,
     iconPosition: 'right',
     children: 'Download',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '우측에 아이콘이 있는 버튼입니다. 액션의 결과나 방향성을 나타낼 때 사용합니다.',
+      },
+    },
   },
 };
 
@@ -193,12 +267,26 @@ export const Loading: Story = {
     loading: true,
     children: 'Loading...',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: '로딩 상태의 버튼입니다. 비동기 작업 진행 중에 사용자에게 피드백을 제공합니다.',
+      },
+    },
+  },
 };
 
 export const Disabled: Story = {
   args: {
     disabled: true,
     children: 'Disabled Button',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '비활성화된 버튼입니다. 사용자가 클릭할 수 없으며, 시각적으로 비활성 상태를 나타냅니다.',
+      },
+    },
   },
 };
 
@@ -209,6 +297,11 @@ export const FullWidth: Story = {
   },
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        story: '전체 너비를 차지하는 버튼입니다. 폼이나 카드 하단에서 주로 사용됩니다.',
+      },
+    },
   },
 };
 
@@ -219,6 +312,13 @@ export const PrimaryWithIcon: Story = {
     icon: <SearchIcon />,
     children: 'Search',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Primary variant와 아이콘을 조합한 버튼입니다. 주요 액션에 시각적 요소를 추가한 경우입니다.',
+      },
+    },
+  },
 };
 
 export const SecondaryLoading: Story = {
@@ -226,6 +326,13 @@ export const SecondaryLoading: Story = {
     variant: 'secondary',
     loading: true,
     children: 'Processing...',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Secondary variant의 로딩 상태 버튼입니다. 보조 액션의 진행 상태를 나타냅니다.',
+      },
+    },
   },
 };
 
@@ -235,6 +342,13 @@ export const LargeWithRightIcon: Story = {
     icon: <DownloadIcon />,
     iconPosition: 'right',
     children: 'Download File',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Large 크기와 우측 아이콘을 조합한 버튼입니다. 중요한 다운로드 액션에 적합합니다.',
+      },
+    },
   },
 };
 

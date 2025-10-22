@@ -26,10 +26,10 @@
   justify-content: center;
   border: none;
   cursor: pointer;
-  /* transition 제거 - wireframe 룰 준수 */
   font-family: inherit;
   outline: none;
   position: relative;
+  background-color: transparent;
 }
 
 .paginationButton:focus-visible,
@@ -40,7 +40,27 @@
 
 /* ===== SIZE VARIANTS ===== */
 
-/* Small Size - 피그마 디자인에서 지원하지 않음, 제거 */
+/* Small Size */
+.pagination--small .paginationButton {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.12px;
+}
+
+.pagination--small .navigationButton {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+.pagination--small .navigationButton img {
+  width: 16px;
+  height: 16px;
+}
 
 /* Medium Size (Default - Figma Design) */
 .pagination--medium .paginationButton {
@@ -59,32 +79,198 @@
   border-radius: 8px;
 }
 
-.pagination--medium .navigationButton svg {
+.pagination--medium .navigationButton img {
   width: 24px;
   height: 24px;
 }
 
-/* Large Size - 피그마 디자인에서 지원하지 않음, 제거 */
+/* Large Size */
+.pagination--large .paginationButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+}
 
-/* ===== FIGMA DESIGN STYLES ===== */
+.pagination--large .navigationButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
 
-/* Default Figma Design Styles */
-.paginationButton {
+.pagination--large .navigationButton img {
+  width: 28px;
+  height: 28px;
+}
+
+/* ===== VARIANT STYLES ===== */
+
+/* Primary Variant (Default Figma Design) */
+.paginationButton--primary {
   background-color: #ffffff;
   color: #777777;
   border: 1px solid transparent;
 }
 
-.paginationButton--active {
+.paginationButton--primary.paginationButton--active {
   background-color: #f2f2f2;
   color: #000000;
   font-weight: 500;
 }
 
-.navigationButton {
+.navigationButton--primary {
   background-color: #ffffff;
   color: #777777;
   border: 1px solid transparent;
+}
+
+/* Secondary Variant */
+.paginationButton--secondary {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+}
+
+.paginationButton--secondary.paginationButton--active {
+  background-color: #e9ecef;
+  color: #495057;
+  font-weight: 500;
+  border-color: #adb5bd;
+}
+
+.navigationButton--secondary {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+}
+
+/* Tertiary Variant */
+.paginationButton--tertiary {
+  background-color: transparent;
+  color: #6366f1;
+  border: 1px solid #e5e7eb;
+}
+
+.paginationButton--tertiary.paginationButton--active {
+  background-color: #6366f1;
+  color: #ffffff;
+  font-weight: 500;
+  border-color: #6366f1;
+}
+
+.navigationButton--tertiary {
+  background-color: transparent;
+  color: #6366f1;
+  border: 1px solid #e5e7eb;
+}
+
+/* ===== THEME VARIANTS ===== */
+
+/* Light Theme (Default) */
+.pagination--light .paginationButton--primary {
+  background-color: #ffffff;
+  color: #777777;
+}
+
+.pagination--light .paginationButton--primary.paginationButton--active {
+  background-color: #f2f2f2;
+  color: #000000;
+}
+
+.pagination--light .navigationButton--primary {
+  background-color: #ffffff;
+  color: #777777;
+}
+
+.pagination--light .paginationButton--secondary {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.pagination--light .paginationButton--secondary.paginationButton--active {
+  background-color: #e9ecef;
+  color: #495057;
+  border-color: #adb5bd;
+}
+
+.pagination--light .navigationButton--secondary {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border-color: #dee2e6;
+}
+
+.pagination--light .paginationButton--tertiary {
+  background-color: transparent;
+  color: #6366f1;
+  border-color: #e5e7eb;
+}
+
+.pagination--light .paginationButton--tertiary.paginationButton--active {
+  background-color: #6366f1;
+  color: #ffffff;
+  border-color: #6366f1;
+}
+
+.pagination--light .navigationButton--tertiary {
+  background-color: transparent;
+  color: #6366f1;
+  border-color: #e5e7eb;
+}
+
+/* Dark Theme */
+.pagination--dark .paginationButton--primary {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+.pagination--dark .paginationButton--primary.paginationButton--active {
+  background-color: #4b5563;
+  color: #ffffff;
+}
+
+.pagination--dark .navigationButton--primary {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+.pagination--dark .paginationButton--secondary {
+  background-color: #4b5563;
+  color: #d1d5db;
+  border-color: #6b7280;
+}
+
+.pagination--dark .paginationButton--secondary.paginationButton--active {
+  background-color: #6b7280;
+  color: #ffffff;
+  border-color: #9ca3af;
+}
+
+.pagination--dark .navigationButton--secondary {
+  background-color: #4b5563;
+  color: #d1d5db;
+  border-color: #6b7280;
+}
+
+.pagination--dark .paginationButton--tertiary {
+  background-color: transparent;
+  color: #818cf8;
+  border-color: #4b5563;
+}
+
+.pagination--dark .paginationButton--tertiary.paginationButton--active {
+  background-color: #6366f1;
+  color: #ffffff;
+  border-color: #6366f1;
+}
+
+.pagination--dark .navigationButton--tertiary {
+  background-color: transparent;
+  color: #818cf8;
+  border-color: #4b5563;
 }
 
 /* ===== DISABLED STATES ===== */
@@ -97,92 +283,55 @@
 
 .pagination--disabled {
   opacity: 0.6;
-  pointer-events: none;
 }
 
-/* ===== HOVER EFFECTS ===== */
-.paginationButton:hover:not(:disabled):not(.paginationButton--active) {
-  /* 애니메이션 제거 - wireframe 룰 준수 */
-}
-
-.navigationButton:hover:not(:disabled) {
-  /* 애니메이션 제거 - wireframe 룰 준수 */
-}
-
-/* ===== ACTIVE STATES ===== */
-.paginationButton:active:not(:disabled),
-.navigationButton:active:not(:disabled) {
-  /* 애니메이션 제거 - wireframe 룰 준수 */
-}
+/* ===== HOVER STATES REMOVED ===== */
+/* @02-wireframe.mdc 룰 준수: 애니메이션 등은 넣지 말고, 있는 그대로만 완벽히 구현 */
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   .pagination {
     gap: 4px;
   }
-
+  
   .pageNumbers {
     gap: 4px;
   }
-
-  /* Mobile에서는 medium 크기를 약간 작게 조정 */
+  
+  /* Mobile에서는 small size 사용 권장 */
   .pagination--medium .paginationButton {
     width: 28px;
     height: 28px;
     font-size: 14px;
-    line-height: 20px;
   }
-
+  
   .pagination--medium .navigationButton {
     width: 28px;
     height: 28px;
   }
+  
+  .pagination--medium .navigationButton img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* ===== ACCESSIBILITY ===== */
-/* prefers-reduced-motion 미디어쿼리 제거 - 애니메이션 자체를 사용하지 않음 */
-
-/* High contrast mode support - 피그마 디자인 기반 단순화 */
-@media (prefers-contrast: high) {
-  .paginationButton {
-    border: 1px solid #000000;
-  }
-
-  .paginationButton--active {
-    background-color: #000000;
-    color: #ffffff;
-  }
-
+@media (prefers-reduced-motion: reduce) {
+  .paginationButton,
   .navigationButton {
-    border: 1px solid #000000;
+    transition: none;
   }
 }
 
-/* ===== LOADING STATE ===== */
-.pagination--loading {
-  pointer-events: none;
-}
-
-.pagination--loading .paginationButton,
-.pagination--loading .navigationButton {
-  opacity: 0.6;
-  cursor: wait;
-}
-
-/* ===== COMPACT MODE ===== */
-.pagination--compact {
-  gap: 2px;
-}
-
-.pagination--compact .pageNumbers {
-  gap: 2px;
-}
-
-/* ===== RTL SUPPORT ===== */
-[dir='rtl'] .pagination {
-  direction: rtl;
-}
-
-[dir='rtl'] .navigationButton svg {
-  transform: scaleX(-1);
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .paginationButton,
+  .navigationButton {
+    border: 2px solid;
+  }
+  
+  .paginationButton--active {
+    border-color: currentColor;
+  }
 }

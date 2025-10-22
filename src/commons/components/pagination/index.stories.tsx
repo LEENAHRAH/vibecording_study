@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 const meta: Meta<typeof Pagination> = {
   title: 'Commons/Components/Pagination',
   component: Pagination,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     docs: {
@@ -37,10 +38,20 @@ Pagination 컴포넌트는 Figma 디자인을 기반으로 한 페이지네이�
       action: 'page-changed',
       description: '페이지 변경 시 호출되는 콜백 함수',
     },
+    variant: {
+      control: { type: 'select' },
+      options: ['primary', 'secondary', 'tertiary'],
+      description: '컴포넌트 variant',
+    },
     size: {
       control: { type: 'select' },
-      options: ['medium'],
-      description: '컴포넌트 크기 (피그마 디자인은 medium만 지원)',
+      options: ['small', 'medium', 'large'],
+      description: '컴포넌트 크기',
+    },
+    theme: {
+      control: { type: 'select' },
+      options: ['light', 'dark'],
+      description: '테마',
     },
     maxVisiblePages: {
       control: { type: 'number', min: 3, max: 10 },
@@ -78,12 +89,21 @@ export const Default: Story = {
     currentPage: 1,
     totalPages: 10,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: false,
     disabled: false,
     ariaLabel: '페이지네이션',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '기본 설정의 Pagination 컴포넌트입니다. 첫 번째 페이지에서 시작하며, 이전/다음 버튼이 포함되어 있습니다.',
+      },
+    },
   },
 };
 
@@ -103,12 +123,21 @@ export const Interactive: Story = {
   args: {
     currentPage: 1,
     totalPages: 20,
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: false,
     disabled: false,
     ariaLabel: '인터랙티브 페이지네이션',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '실제로 상태를 관리하는 인터랙티브 Pagination입니다. 클릭하면 페이지가 실제로 변경됩니다.',
+      },
+    },
   },
 };
 
@@ -118,11 +147,20 @@ export const MiddlePage: Story = {
     currentPage: 5,
     totalPages: 10,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: false,
     disabled: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '중간 페이지에 위치한 Pagination입니다. 앞뒤 페이지 번호들이 모두 표시되는 상태를 보여줍니다.',
+      },
+    },
   },
 };
 
@@ -132,11 +170,20 @@ export const LastPage: Story = {
     currentPage: 10,
     totalPages: 10,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: false,
     disabled: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '마지막 페이지에 위치한 Pagination입니다. 다음 버튼이 비활성화되어 있는 상태를 보여줍니다.',
+      },
+    },
   },
 };
 
@@ -146,7 +193,9 @@ export const FewPages: Story = {
     currentPage: 2,
     totalPages: 3,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: false,
@@ -160,7 +209,9 @@ export const ManyPages: Story = {
     currentPage: 25,
     totalPages: 100,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: false,
@@ -184,7 +235,9 @@ export const WithFirstLastButtons: Story = {
   args: {
     currentPage: 15,
     totalPages: 50,
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: true,
@@ -199,7 +252,9 @@ export const WithoutNavigationButtons: Story = {
     currentPage: 5,
     totalPages: 10,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: false,
     showFirstLastButtons: false,
@@ -213,7 +268,9 @@ export const MaxVisiblePages3: Story = {
     currentPage: 5,
     totalPages: 20,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 3,
     showNavigationButtons: true,
     showFirstLastButtons: false,
@@ -226,7 +283,9 @@ export const MaxVisiblePages7: Story = {
     currentPage: 10,
     totalPages: 30,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 7,
     showNavigationButtons: true,
     showFirstLastButtons: false,
@@ -240,7 +299,9 @@ export const Disabled: Story = {
     currentPage: 5,
     totalPages: 10,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: false,
@@ -248,17 +309,26 @@ export const Disabled: Story = {
   },
 };
 
-// 단일 페이지
+// 단일 페이지 (Figma 디자인 준수)
 export const SinglePage: Story = {
   args: {
     currentPage: 1,
     totalPages: 1,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: false,
     disabled: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Figma 디자인에 맞춰 단일 페이지일 때는 네비게이션 버튼 없이 페이지 번호만 표시됩니다.',
+      },
+    },
   },
 };
 
@@ -286,7 +356,9 @@ export const AllOptions: Story = {
   args: {
     currentPage: 25,
     totalPages: 100,
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 7,
     showNavigationButtons: true,
     showFirstLastButtons: true,
@@ -301,7 +373,9 @@ export const WithCustomClass: Story = {
     currentPage: 3,
     totalPages: 8,
     onPageChange: (page: number) => console.log('Page changed to:', page),
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: false,
@@ -334,7 +408,9 @@ export const AccessibilityTest: Story = {
   args: {
     currentPage: 5,
     totalPages: 15,
+    variant: 'primary',
     size: 'medium',
+    theme: 'light',
     maxVisiblePages: 5,
     showNavigationButtons: true,
     showFirstLastButtons: true,
@@ -344,6 +420,178 @@ export const AccessibilityTest: Story = {
 };
 
 // 경계값 테스트
+// Variant 시스템 테스트
+export const VariantShowcase: Story = {
+  render: () => {
+    const [currentPages, setCurrentPages] = useState({
+      primary: 3,
+      secondary: 3,
+      tertiary: 3,
+    });
+    
+    return (
+      <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '30px' }}>
+        <div>
+          <h3 style={{ marginBottom: '15px', fontFamily: 'Pretendard Variable' }}>Primary Variant</h3>
+          <Pagination
+            currentPage={currentPages.primary}
+            totalPages={10}
+            onPageChange={(page) => setCurrentPages(prev => ({ ...prev, primary: page }))}
+            variant="primary"
+            size="medium"
+            theme="light"
+            maxVisiblePages={5}
+            showNavigationButtons={true}
+            showFirstLastButtons={false}
+            disabled={false}
+          />
+        </div>
+        
+        <div>
+          <h3 style={{ marginBottom: '15px', fontFamily: 'Pretendard Variable' }}>Secondary Variant</h3>
+          <Pagination
+            currentPage={currentPages.secondary}
+            totalPages={10}
+            onPageChange={(page) => setCurrentPages(prev => ({ ...prev, secondary: page }))}
+            variant="secondary"
+            size="medium"
+            theme="light"
+            maxVisiblePages={5}
+            showNavigationButtons={true}
+            showFirstLastButtons={false}
+            disabled={false}
+          />
+        </div>
+        
+        <div>
+          <h3 style={{ marginBottom: '15px', fontFamily: 'Pretendard Variable' }}>Tertiary Variant</h3>
+          <Pagination
+            currentPage={currentPages.tertiary}
+            totalPages={10}
+            onPageChange={(page) => setCurrentPages(prev => ({ ...prev, tertiary: page }))}
+            variant="tertiary"
+            size="medium"
+            theme="light"
+            maxVisiblePages={5}
+            showNavigationButtons={true}
+            showFirstLastButtons={false}
+            disabled={false}
+          />
+        </div>
+      </div>
+    );
+  },
+};
+
+// Size 변형 테스트
+export const SizeVariants: Story = {
+  render: () => {
+    const [currentPages, setCurrentPages] = useState({
+      small: 3,
+      medium: 3,
+      large: 3,
+    });
+    
+    return (
+      <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '30px' }}>
+        <div>
+          <h3 style={{ marginBottom: '15px', fontFamily: 'Pretendard Variable' }}>Small Size</h3>
+          <Pagination
+            currentPage={currentPages.small}
+            totalPages={10}
+            onPageChange={(page) => setCurrentPages(prev => ({ ...prev, small: page }))}
+            variant="primary"
+            size="small"
+            theme="light"
+            maxVisiblePages={5}
+            showNavigationButtons={true}
+            showFirstLastButtons={false}
+            disabled={false}
+          />
+        </div>
+        
+        <div>
+          <h3 style={{ marginBottom: '15px', fontFamily: 'Pretendard Variable' }}>Medium Size (Default)</h3>
+          <Pagination
+            currentPage={currentPages.medium}
+            totalPages={10}
+            onPageChange={(page) => setCurrentPages(prev => ({ ...prev, medium: page }))}
+            variant="primary"
+            size="medium"
+            theme="light"
+            maxVisiblePages={5}
+            showNavigationButtons={true}
+            showFirstLastButtons={false}
+            disabled={false}
+          />
+        </div>
+        
+        <div>
+          <h3 style={{ marginBottom: '15px', fontFamily: 'Pretendard Variable' }}>Large Size</h3>
+          <Pagination
+            currentPage={currentPages.large}
+            totalPages={10}
+            onPageChange={(page) => setCurrentPages(prev => ({ ...prev, large: page }))}
+            variant="primary"
+            size="large"
+            theme="light"
+            maxVisiblePages={5}
+            showNavigationButtons={true}
+            showFirstLastButtons={false}
+            disabled={false}
+          />
+        </div>
+      </div>
+    );
+  },
+};
+
+// 테마 변형 테스트
+export const ThemeVariants: Story = {
+  render: () => {
+    const [currentPages, setCurrentPages] = useState({
+      light: 3,
+      dark: 3,
+    });
+    
+    return (
+      <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '30px' }}>
+        <div>
+          <h3 style={{ marginBottom: '15px', fontFamily: 'Pretendard Variable' }}>Light Theme</h3>
+          <Pagination
+            currentPage={currentPages.light}
+            totalPages={10}
+            onPageChange={(page) => setCurrentPages(prev => ({ ...prev, light: page }))}
+            variant="primary"
+            size="medium"
+            theme="light"
+            maxVisiblePages={5}
+            showNavigationButtons={true}
+            showFirstLastButtons={false}
+            disabled={false}
+          />
+        </div>
+        
+        <div style={{ backgroundColor: '#1f2937', padding: '20px', borderRadius: '8px' }}>
+          <h3 style={{ marginBottom: '15px', fontFamily: 'Pretendard Variable', color: 'white' }}>Dark Theme</h3>
+          <Pagination
+            currentPage={currentPages.dark}
+            totalPages={10}
+            onPageChange={(page) => setCurrentPages(prev => ({ ...prev, dark: page }))}
+            variant="primary"
+            size="medium"
+            theme="dark"
+            maxVisiblePages={5}
+            showNavigationButtons={true}
+            showFirstLastButtons={false}
+            disabled={false}
+          />
+        </div>
+      </div>
+    );
+  },
+};
+
 export const EdgeCases: Story = {
   render: () => {
     const [scenario, setScenario] = useState(0);
@@ -378,7 +626,9 @@ export const EdgeCases: Story = {
           currentPage={currentScenario.currentPage}
           totalPages={currentScenario.totalPages}
           onPageChange={(page) => console.log('Page changed to:', page)}
+          variant="primary"
           size="medium"
+          theme="light"
           maxVisiblePages={5}
           showNavigationButtons={true}
           showFirstLastButtons={true}
