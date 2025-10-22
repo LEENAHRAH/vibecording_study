@@ -361,6 +361,7 @@ export const SelectBox = forwardRef<HTMLSelectElement, SelectBoxProps>(
           role="combobox"
           aria-expanded={isOpen}
           aria-haspopup="listbox"
+          aria-controls="selectbox-options"
           aria-label={label || placeholder}
           aria-required={required}
           aria-invalid={error}
@@ -395,6 +396,7 @@ export const SelectBox = forwardRef<HTMLSelectElement, SelectBoxProps>(
           {/* 옵션 드롭다운 */}
           {isOpen && (
             <div
+              id="selectbox-options"
               className={styles.dropdown}
               role="listbox"
               aria-multiselectable={multiple}
@@ -426,27 +428,27 @@ export const SelectBox = forwardRef<HTMLSelectElement, SelectBoxProps>(
                       }
                       aria-disabled={option.disabled}
                     >
-                      {multiple && (
-                        <div className={styles.checkbox}>
-                          {internalSelectedValues.includes(option.value) && (
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                            >
-                              <path
-                                d="M13.5 4.5L6 12L2.5 8.5"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          )}
+                      <span className={styles.optionLabel}>{option.label}</span>
+                      {(multiple
+                        ? internalSelectedValues.includes(option.value)
+                        : selectedOption?.value === option.value) && (
+                        <div className={styles.checkIcon}>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M13.5 4.5L6 12L2.5 8.5"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
                         </div>
                       )}
-                      <span className={styles.optionLabel}>{option.label}</span>
                     </div>
                   ))}
                 </div>
