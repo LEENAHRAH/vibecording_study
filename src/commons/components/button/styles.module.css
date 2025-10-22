@@ -60,31 +60,33 @@
   /* 애니메이션 제거 - @02-wireframe.mdc 룰 준수 */
 }
 
-/* Size Variants */
+/* Size Variants - 피그마 디자인 기준으로 수정 */
 .button--small {
-  height: 32px;
-  padding: 6px 12px;
-  font-size: 12px;
-  line-height: 18px;
-  letter-spacing: 0;
+  height: 48px;
+  padding: 12px 10px;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.18px;
+  min-width: 51px;
 }
 
 .button--small .spinnerCircle {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
 }
 
 .button--medium {
-  height: 40px;
-  padding: 8px 16px;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0;
+  height: 48px;
+  padding: 12px 20px;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.18px;
+  min-width: 110px;
 }
 
 .button--medium .spinnerCircle {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 }
 
 .button--large {
@@ -93,6 +95,7 @@
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.18px;
+  min-width: 110px;
 }
 
 .button--large .spinnerCircle {
@@ -108,14 +111,10 @@
 
 .button--primary.button--light:hover:not(:disabled) {
   background-color: #1a1a1a;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .button--primary.button--light:active:not(:disabled) {
   background-color: #333333;
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Primary Variant - Dark Theme */
@@ -126,14 +125,10 @@
 
 .button--primary.button--dark:hover:not(:disabled) {
   background-color: #f5f5f5;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 }
 
 .button--primary.button--dark:active:not(:disabled) {
   background-color: #e5e5e5;
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
 }
 
 /* Secondary Variant - Light Theme */
@@ -146,15 +141,11 @@
 .button--secondary.button--light:hover:not(:disabled) {
   background-color: #f1f5f9;
   border-color: #cbd5e1;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .button--secondary.button--light:active:not(:disabled) {
   background-color: #e2e8f0;
   border-color: #94a3b8;
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* Secondary Variant - Dark Theme */
@@ -167,15 +158,11 @@
 .button--secondary.button--dark:hover:not(:disabled) {
   background-color: #334155;
   border-color: #475569;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .button--secondary.button--dark:active:not(:disabled) {
   background-color: #475569;
   border-color: #64748b;
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Tertiary Variant - Light Theme */
@@ -186,12 +173,10 @@
 
 .button--tertiary.button--light:hover:not(:disabled) {
   background-color: #f8fafc;
-  transform: translateY(-1px);
 }
 
 .button--tertiary.button--light:active:not(:disabled) {
   background-color: #f1f5f9;
-  transform: translateY(0);
 }
 
 /* Tertiary Variant - Dark Theme */
@@ -202,12 +187,10 @@
 
 .button--tertiary.button--dark:hover:not(:disabled) {
   background-color: #1e293b;
-  transform: translateY(-1px);
 }
 
 .button--tertiary.button--dark:active:not(:disabled) {
   background-color: #334155;
-  transform: translateY(0);
 }
 
 /* Full Width */
