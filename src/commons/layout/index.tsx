@@ -40,10 +40,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <div className={styles.footerTitle}>민지의 다이어리</div>
-          <div className={styles.footerInfo}>
-            <div className={styles.footerRepresentative}>대표 : {'{name}'}</div>
-            <div className={styles.footerCopyright}>Copyright © 2024. {'{name}'} Co., Ltd.</div>
-          </div>
+          <div className={styles.footerRepresentative}>대표 : {'{name}'}</div>
+          <div className={styles.footerCopyright}>Copyright © 2024. {'{name}'} Co., Ltd.</div>
         </div>
       </footer>
     </div>
