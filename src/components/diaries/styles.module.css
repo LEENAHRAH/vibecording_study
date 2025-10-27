@@ -11,62 +11,74 @@
 .gap32 {
   width: 1168px;
   height: 32px;
-  background-color: #f0f0f0; /* 임시 배경색으로 영역 확인 */
 }
 
 .gap42 {
   width: 1168px;
   height: 42px;
-  background-color: #f0f0f0; /* 임시 배경색으로 영역 확인 */
 }
 
 .gap40 {
   width: 1168px;
   height: 40px;
-  background-color: #f0f0f0; /* 임시 배경색으로 영역 확인 */
 }
 
 /* Search Area */
 .search {
   width: 1168px;
   height: 48px;
-  background-color: #e8e8e8; /* 임시 배경색으로 영역 확인 */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .searchContent {
-  color: #666;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 1050px;
+  height: 48px;
+}
+
+/* 필터 셀렉트박스 스타일 - width만 허용 */
+.filterSelect {
+  width: 120px;
+}
+
+/* 검색바 스타일 - width만 허용 */
+.searchInput {
+  width: 320px;
+}
+
+/* 일기쓰기 버튼 스타일 - width만 허용 */
+.writeButton {
+  width: 110px;
 }
 
 /* Main Content Area */
 .main {
   width: 1168px;
   height: 936px;
-  background-color: #d8d8d8; /* 임시 배경색으로 영역 확인 */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .mainContent {
-  color: #666;
-  font-size: 16px;
+  color: var(--color-text-secondary);
+  font: var(--typography-body-01);
 }
 
 /* Pagination Area */
 .pagination {
   width: 1168px;
   height: 32px;
-  background-color: #e8e8e8; /* 임시 배경색으로 영역 확인 */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .paginationContent {
-  color: #666;
-  font-size: 14px;
+  color: var(--color-text-secondary);
+  font: var(--typography-body-02-medium);
 }

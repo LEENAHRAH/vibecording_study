@@ -15,6 +15,7 @@ export const URLS = {
   DIARIES: {
     LIST: '/diaries',
     DETAIL: '/diaries/[id]', // 다이나믹 라우팅
+    NEW: '/diaries/new', // 일기쓰기
   },
 
   // 사진 관련
