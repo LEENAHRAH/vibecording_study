@@ -41,6 +41,10 @@
   --color-status-error: #ef4444;
   --color-status-info: #3b82f6;
 
+  /* Custom Color Tokens for Layout */
+  --color-black: #000000;
+  --color-gray60: #999999;
+
   /* Typography Tokens */
   /* Font Families */
   --font-family-korean: 'Pretendard', -apple-system, BlinkMacSystemFont,
