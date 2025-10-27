@@ -35,19 +35,21 @@
 .searchContent {
   display: flex;
   align-items: center;
-  gap: 16px;
   width: 1050px;
   height: 48px;
+  justify-content: flex-start;
 }
 
 /* 필터 셀렉트박스 스타일 - width만 허용 */
 .filterSelect {
-  width: 120px;
+  width: 110px;
+  margin-right: 26px;
 }
 
 /* 검색바 스타일 - width만 허용 */
 .searchInput {
   width: 320px;
+  margin-right: 602px;
 }
 
 /* 일기쓰기 버튼 스타일 - width만 허용 */
