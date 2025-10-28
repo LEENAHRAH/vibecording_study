@@ -8,31 +8,19 @@ interface DiariesDetailProps {
   className?: string;
 }
 
-// Mock 데이터
+// Mock 데이터 - enum 타입을 활용한 감정 관련 데이터
 const mockDiaryData = {
   id: "1",
   title: "이것은 타이틀 입니다.",
   content:
     "내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다내용이 들어갑니다",
-  emotion: EmotionType.HAPPY,
+  emotion: EmotionType.HAPPY, // enum 타입 활용
   createdAt: "2024. 07. 12",
 };
 
+// @01-common.mdc 룰 준수: 독립적인 부품들의 조립 형태로 구현
 const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
   const emotionInfo = getEmotionInfo(mockDiaryData.emotion);
-
-  const handleCopyContent = () => {
-    navigator.clipboard.writeText(mockDiaryData.content);
-    alert("내용이 복사되었습니다.");
-  };
-
-  const handleEdit = () => {
-    console.log("수정 버튼 클릭");
-  };
-
-  const handleDelete = () => {
-    console.log("삭제 버튼 클릭");
-  };
 
   return (
     <div className={`${styles.container} ${className || ""}`}>
@@ -53,7 +41,12 @@ const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
               height={32}
               className={styles.emotionIcon}
             />
-            <span className={styles.emotionText}>{emotionInfo.label}</span>
+            <span
+              className={styles.emotionText}
+              style={{ color: emotionInfo.color }}
+            >
+              {emotionInfo.label}
+            </span>
           </div>
           <div className={styles.dateSection}>
             <span className={styles.dateText}>{mockDiaryData.createdAt}</span>
@@ -72,7 +65,7 @@ const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
           <div className={styles.contentText}>{mockDiaryData.content}</div>
         </div>
         <div className={styles.copySection}>
-          <button className={styles.copyButton} onClick={handleCopyContent}>
+          <button className={styles.copyButton}>
             <Image
               src="/icons/copy_outline_light_m.svg"
               alt="복사"
@@ -94,7 +87,6 @@ const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
             variant="secondary"
             size="small"
             theme="light"
-            onClick={handleEdit}
             className={styles.editButton}
           >
             수정
@@ -103,7 +95,6 @@ const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
             variant="secondary"
             size="small"
             theme="light"
-            onClick={handleDelete}
             className={styles.deleteButton}
           >
             삭제
@@ -111,8 +102,8 @@ const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
         </div>
       </div>
 
-      {/* Gap: 1168 * 24 */}
-      <div className={styles.gap24}></div>
+      {/* Gap: 1168 * 40 - Footer 하단 간격 복구 */}
+      <div className={styles.gap40}></div>
 
       {/* Retrospect Input: 1168 * 85 */}
       <div className={styles.retrospectInput}>
