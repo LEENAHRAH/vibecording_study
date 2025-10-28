@@ -10,6 +10,7 @@ import { Button } from "../../commons/components/button";
 import {
   EmotionType,
   getEmotionLabel,
+  getEmotionImage,
 } from "../../commons/constants/enum";
 import { URLS } from "../../commons/constants/url";
 
@@ -29,55 +30,91 @@ const DiariesComponent: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  // Mock 데이터 - 감정 enum 활용 (프롬프트 요구사항: /images 경로 사용)
+  // Mock 데이터 - 피그마 디자인과 동일한 12개 카드 데이터 (enum 이미지 경로 사용)
   const mockDiaries: DiaryEntry[] = [
     {
       id: 1,
-      date: "2024.10.28",
-      content:
-        "오늘은 정말 좋은 하루였어요. 친구들과 함께 맛있는 음식을 먹고 즐거운 시간을 보냈습니다.",
-      emotion: EmotionType.HAPPY,
-      image: "/images/emotion-happy-m.png",
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다. 한줄까지만 노출 됩니다.",
+      emotion: EmotionType.SAD,
+      image: getEmotionImage(EmotionType.SAD, "medium"),
     },
     {
       id: 2,
-      date: "2024.10.27",
-      content:
-        "비가 와서 조금 우울한 기분이었지만, 집에서 따뜻한 차를 마시며 책을 읽었어요.",
-      emotion: EmotionType.SAD,
-      image: "/images/emotion-sad-m.png",
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다.",
+      emotion: EmotionType.SURPRISE,
+      image: getEmotionImage(EmotionType.SURPRISE, "medium"),
     },
     {
       id: 3,
-      date: "2024.10.26",
-      content:
-        "회사에서 일이 잘 풀리지 않아서 스트레스를 많이 받았습니다. 화가 많이 났어요.",
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다.",
       emotion: EmotionType.ANGRY,
-      image: "/images/emotion-angry-m.png",
+      image: getEmotionImage(EmotionType.ANGRY, "medium"),
     },
     {
       id: 4,
-      date: "2024.10.25",
-      content:
-        "갑자기 옛 친구에게서 연락이 와서 정말 놀랐어요. 오랜만에 만나기로 했습니다.",
-      emotion: EmotionType.SURPRISE,
-      image: "/images/emotion-surprise-m.png",
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다.",
+      emotion: EmotionType.HAPPY,
+      image: getEmotionImage(EmotionType.HAPPY, "medium"),
     },
     {
       id: 5,
-      date: "2024.10.24",
-      content:
-        "평범한 하루였지만 나름대로 의미있는 시간을 보냈습니다. 특별할 것 없는 일상이었어요.",
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다. 한줄까지만 노출 됩니다.",
       emotion: EmotionType.ETC,
-      image: "/images/emotion-etc-m.png",
+      image: getEmotionImage(EmotionType.ETC, "medium"),
     },
     {
       id: 6,
-      date: "2024.10.23",
-      content:
-        "새로운 취미를 시작해서 정말 기뻐요. 앞으로 더 열심히 해보려고 합니다.",
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다.",
+      emotion: EmotionType.SURPRISE,
+      image: getEmotionImage(EmotionType.SURPRISE, "medium"),
+    },
+    {
+      id: 7,
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다.",
+      emotion: EmotionType.ANGRY,
+      image: getEmotionImage(EmotionType.ANGRY, "medium"),
+    },
+    {
+      id: 8,
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다.",
       emotion: EmotionType.HAPPY,
-      image: "/images/emotion-happy-m.png",
+      image: getEmotionImage(EmotionType.HAPPY, "medium"),
+    },
+    {
+      id: 9,
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다. 한줄까지만 노출 됩니다.",
+      emotion: EmotionType.SAD,
+      image: getEmotionImage(EmotionType.SAD, "medium"),
+    },
+    {
+      id: 10,
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다.",
+      emotion: EmotionType.SURPRISE,
+      image: getEmotionImage(EmotionType.SURPRISE, "medium"),
+    },
+    {
+      id: 11,
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다.",
+      emotion: EmotionType.ANGRY,
+      image: getEmotionImage(EmotionType.ANGRY, "medium"),
+    },
+    {
+      id: 12,
+      date: "2024. 03. 12",
+      content: "타이틀 영역 입니다.",
+      emotion: EmotionType.HAPPY,
+      image: getEmotionImage(EmotionType.HAPPY, "medium"),
     },
   ];
 
@@ -183,16 +220,30 @@ const DiariesComponent: React.FC = () => {
                   <Image
                     src={diary.image}
                     alt={getEmotionLabel(diary.emotion)}
-                    width={48}
-                    height={48}
+                    width={274}
+                    height={208}
+                    className={styles.cardImageElement}
                   />
+                  <button className={styles.closeButton}>
+                    <Image
+                      src="/icons/close_outline_light_m.svg"
+                      alt="닫기"
+                      width={24}
+                      height={24}
+                    />
+                  </button>
                 </div>
                 <div className={styles.cardContent}>
-                  <div className={styles.cardDate}>{diary.date}</div>
-                  <div className={styles.cardText}>{diary.content}</div>
-                  <div className={styles.cardEmotion}>
-                    {getEmotionLabel(diary.emotion)}
+                  <div className={styles.cardHeader}>
+                    <div
+                      className={styles.cardEmotion}
+                      data-emotion={diary.emotion}
+                    >
+                      {getEmotionLabel(diary.emotion)}
+                    </div>
+                    <div className={styles.cardDate}>{diary.date}</div>
                   </div>
+                  <div className={styles.cardText}>{diary.content}</div>
                 </div>
               </div>
             ))}
