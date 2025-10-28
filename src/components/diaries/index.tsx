@@ -7,6 +7,7 @@ import styles from "./styles.module.css";
 import { SelectBox } from "../../commons/components/selectbox";
 import { SearchBar } from "../../commons/components/searchbar";
 import { Button } from "../../commons/components/button";
+import { Pagination } from "../../commons/components/pagination";
 import {
   EmotionType,
   getEmotionLabel,
@@ -30,8 +31,13 @@ const DiariesComponent: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  // Mock 데이터 - 피그마 디자인과 동일한 12개 카드 데이터 (enum 이미지 경로 사용)
-  const mockDiaries: DiaryEntry[] = [
+  // 페이지네이션 상태 관리
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 12; // 4열 × 3행 = 12개 아이템
+
+  // Mock 데이터 - 페이지네이션 테스트를 위한 더 많은 데이터 (총 50개)
+  const allMockDiaries: DiaryEntry[] = [
+    // 1행 1열: 슬퍼요
     {
       id: 1,
       date: "2024. 03. 12",
@@ -39,6 +45,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.SAD,
       image: getEmotionImage(EmotionType.SAD, "medium"),
     },
+    // 1행 2열: 놀랐어요
     {
       id: 2,
       date: "2024. 03. 12",
@@ -46,6 +53,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.SURPRISE,
       image: getEmotionImage(EmotionType.SURPRISE, "medium"),
     },
+    // 1행 3열: 화나요
     {
       id: 3,
       date: "2024. 03. 12",
@@ -53,6 +61,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.ANGRY,
       image: getEmotionImage(EmotionType.ANGRY, "medium"),
     },
+    // 1행 4열: 행복해요
     {
       id: 4,
       date: "2024. 03. 12",
@@ -60,6 +69,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.HAPPY,
       image: getEmotionImage(EmotionType.HAPPY, "medium"),
     },
+    // 2행 1열: 기타
     {
       id: 5,
       date: "2024. 03. 12",
@@ -67,6 +77,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.ETC,
       image: getEmotionImage(EmotionType.ETC, "medium"),
     },
+    // 2행 2열: 놀랐어요
     {
       id: 6,
       date: "2024. 03. 12",
@@ -74,6 +85,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.SURPRISE,
       image: getEmotionImage(EmotionType.SURPRISE, "medium"),
     },
+    // 2행 3열: 화나요
     {
       id: 7,
       date: "2024. 03. 12",
@@ -81,6 +93,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.ANGRY,
       image: getEmotionImage(EmotionType.ANGRY, "medium"),
     },
+    // 2행 4열: 행복해요
     {
       id: 8,
       date: "2024. 03. 12",
@@ -88,6 +101,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.HAPPY,
       image: getEmotionImage(EmotionType.HAPPY, "medium"),
     },
+    // 3행 1열: 슬퍼요
     {
       id: 9,
       date: "2024. 03. 12",
@@ -95,6 +109,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.SAD,
       image: getEmotionImage(EmotionType.SAD, "medium"),
     },
+    // 3행 2열: 놀랐어요
     {
       id: 10,
       date: "2024. 03. 12",
@@ -102,6 +117,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.SURPRISE,
       image: getEmotionImage(EmotionType.SURPRISE, "medium"),
     },
+    // 3행 3열: 화나요
     {
       id: 11,
       date: "2024. 03. 12",
@@ -109,6 +125,7 @@ const DiariesComponent: React.FC = () => {
       emotion: EmotionType.ANGRY,
       image: getEmotionImage(EmotionType.ANGRY, "medium"),
     },
+    // 3행 4열: 행복해요
     {
       id: 12,
       date: "2024. 03. 12",
@@ -117,6 +134,32 @@ const DiariesComponent: React.FC = () => {
       image: getEmotionImage(EmotionType.HAPPY, "medium"),
     },
   ];
+
+  // 더 많은 Mock 데이터 생성 (페이지네이션 테스트용)
+  for (let i = 13; i <= 50; i++) {
+    const emotions = Object.values(EmotionType);
+    const randomEmotion = emotions[Math.floor(Math.random() * emotions.length)];
+    allMockDiaries.push({
+      id: i,
+      date: "2024. 03. 12",
+      content: `타이틀 영역 입니다. ${i}번째 일기입니다.`,
+      emotion: randomEmotion,
+      image: getEmotionImage(randomEmotion, "medium"),
+    });
+  }
+
+  // 페이지네이션 계산
+  const totalPages = Math.ceil(allMockDiaries.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentDiaries = allMockDiaries.slice(startIndex, endIndex);
+
+  // 페이지 변경 핸들러
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // 페이지 변경 시 상단으로 스크롤
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   // 필터 옵션 - ENUM 사용
   const filterOptions = [
@@ -214,7 +257,7 @@ const DiariesComponent: React.FC = () => {
       <div className={styles.main}>
         <div className={styles.mainContent}>
           <div className={styles.diaryGrid}>
-            {mockDiaries.map((diary) => (
+            {currentDiaries.map((diary) => (
               <div key={diary.id} className={styles.diaryCard}>
                 <div className={styles.cardImage}>
                   <Image
@@ -256,7 +299,17 @@ const DiariesComponent: React.FC = () => {
 
       {/* Pagination 1168 * 32 */}
       <div className={styles.pagination}>
-        <div className={styles.paginationContent}>Pagination Area</div>
+        <div className={styles.paginationContent}>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            variant="primary"
+            size="medium"
+            theme="light"
+            className={styles.paginationComponent}
+          />
+        </div>
       </div>
 
       {/* Gap 1168 * 40 */}

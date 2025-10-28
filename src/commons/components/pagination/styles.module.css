@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont,
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
     system-ui, sans-serif;
   user-select: none;
 }
@@ -110,115 +110,115 @@
 
 /* Primary Variant (Default Figma Design) */
 .paginationButton--primary {
-  background-color: #ffffff;
-  color: #777777;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-tertiary);
   border: 1px solid transparent;
 }
 
 .paginationButton--primary.paginationButton--active {
-  background-color: #f2f2f2;
-  color: #000000;
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
   font-weight: 500;
 }
 
 .navigationButton--primary {
-  background-color: #ffffff;
-  color: #777777;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-tertiary);
   border: 1px solid transparent;
 }
 
 /* Secondary Variant */
 .paginationButton--secondary {
-  background-color: #f8f9fa;
-  color: #6c757d;
-  border: 1px solid #dee2e6;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border-primary);
 }
 
 .paginationButton--secondary.paginationButton--active {
-  background-color: #e9ecef;
-  color: #495057;
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
   font-weight: 500;
-  border-color: #adb5bd;
+  border-color: var(--color-border-secondary);
 }
 
 .navigationButton--secondary {
-  background-color: #f8f9fa;
-  color: #6c757d;
-  border: 1px solid #dee2e6;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border-primary);
 }
 
 /* Tertiary Variant */
 .paginationButton--tertiary {
   background-color: transparent;
-  color: #6366f1;
-  border: 1px solid #e5e7eb;
+  color: var(--color-interactive-primary);
+  border: 1px solid var(--color-border-primary);
 }
 
 .paginationButton--tertiary.paginationButton--active {
-  background-color: #6366f1;
-  color: #ffffff;
+  background-color: var(--color-interactive-primary);
+  color: var(--color-text-inverse);
   font-weight: 500;
-  border-color: #6366f1;
+  border-color: var(--color-interactive-primary);
 }
 
 .navigationButton--tertiary {
   background-color: transparent;
-  color: #6366f1;
-  border: 1px solid #e5e7eb;
+  color: var(--color-interactive-primary);
+  border: 1px solid var(--color-border-primary);
 }
 
 /* ===== THEME VARIANTS ===== */
 
 /* Light Theme (Default) */
 .pagination--light .paginationButton--primary {
-  background-color: #ffffff;
-  color: #777777;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-tertiary);
 }
 
 .pagination--light .paginationButton--primary.paginationButton--active {
-  background-color: #f2f2f2;
-  color: #000000;
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
 }
 
 .pagination--light .navigationButton--primary {
-  background-color: #ffffff;
-  color: #777777;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-tertiary);
 }
 
 .pagination--light .paginationButton--secondary {
-  background-color: #f8f9fa;
-  color: #6c757d;
-  border-color: #dee2e6;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  border-color: var(--color-border-primary);
 }
 
 .pagination--light .paginationButton--secondary.paginationButton--active {
-  background-color: #e9ecef;
-  color: #495057;
-  border-color: #adb5bd;
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-secondary);
 }
 
 .pagination--light .navigationButton--secondary {
-  background-color: #f8f9fa;
-  color: #6c757d;
-  border-color: #dee2e6;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  border-color: var(--color-border-primary);
 }
 
 .pagination--light .paginationButton--tertiary {
   background-color: transparent;
-  color: #6366f1;
-  border-color: #e5e7eb;
+  color: var(--color-interactive-primary);
+  border-color: var(--color-border-primary);
 }
 
 .pagination--light .paginationButton--tertiary.paginationButton--active {
-  background-color: #6366f1;
-  color: #ffffff;
-  border-color: #6366f1;
+  background-color: var(--color-interactive-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-interactive-primary);
 }
 
 .pagination--light .navigationButton--tertiary {
   background-color: transparent;
-  color: #6366f1;
-  border-color: #e5e7eb;
+  color: var(--color-interactive-primary);
+  border-color: var(--color-border-primary);
 }
 
 /* Dark Theme */
@@ -293,23 +293,23 @@
   .pagination {
     gap: 4px;
   }
-  
+
   .pageNumbers {
     gap: 4px;
   }
-  
+
   /* Mobile에서는 small size 사용 권장 */
   .pagination--medium .paginationButton {
     width: 28px;
     height: 28px;
     font-size: 14px;
   }
-  
+
   .pagination--medium .navigationButton {
     width: 28px;
     height: 28px;
   }
-  
+
   .pagination--medium .navigationButton img {
     width: 20px;
     height: 20px;
@@ -330,7 +330,7 @@
   .navigationButton {
     border: 2px solid;
   }
-  
+
   .paginationButton--active {
     border-color: currentColor;
   }
