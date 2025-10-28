@@ -23,6 +23,12 @@
   height: 16px;
 }
 
+/* Gap: 1168 * 40 - Footer 하단 추가 간격 */
+.gap40 {
+  width: 1168px;
+  height: 40px;
+}
+
 /* Detail Title Section */
 .detailTitle {
   width: 1168px;
@@ -38,6 +44,7 @@
   height: 36px;
   display: flex;
   align-items: center;
+  border-bottom: 2px solid black;
 }
 
 .title {
@@ -68,7 +75,7 @@
 
 .emotionText {
   font: var(--typography-title-01);
-  color: var(--color-status-error);
+  color: inherit; /* 동적으로 설정될 색상 사용 */
   line-height: 24px;
 }
 
@@ -146,17 +153,19 @@
 /* Detail Footer Section */
 .detailFooter {
   width: 1168px;
-  height: 40px;
+  height: 56px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   box-sizing: border-box;
+  border-bottom: 1px solid black;
 }
 
 .footerButtons {
   display: flex;
   gap: 16px;
   align-items: center;
+  margin-bottom: 16px;
 }
 
 .editButton,
