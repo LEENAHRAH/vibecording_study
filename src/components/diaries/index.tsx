@@ -7,8 +7,20 @@ import styles from "./styles.module.css";
 import { SelectBox } from "../../commons/components/selectbox";
 import { SearchBar } from "../../commons/components/searchbar";
 import { Button } from "../../commons/components/button";
-import { EmotionType, getEmotionLabel } from "../../commons/constants/enum";
+import {
+  EmotionType,
+  getEmotionLabel,
+} from "../../commons/constants/enum";
 import { URLS } from "../../commons/constants/url";
+
+// Mock 데이터 인터페이스
+interface DiaryEntry {
+  id: number;
+  date: string;
+  content: string;
+  emotion: EmotionType;
+  image: string;
+}
 
 const DiariesComponent: React.FC = () => {
   const router = useRouter();
@@ -16,6 +28,58 @@ const DiariesComponent: React.FC = () => {
   // 상태 관리 - 타입 안전성 개선
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState<string>("");
+
+  // Mock 데이터 - 감정 enum 활용 (프롬프트 요구사항: /images 경로 사용)
+  const mockDiaries: DiaryEntry[] = [
+    {
+      id: 1,
+      date: "2024.10.28",
+      content:
+        "오늘은 정말 좋은 하루였어요. 친구들과 함께 맛있는 음식을 먹고 즐거운 시간을 보냈습니다.",
+      emotion: EmotionType.HAPPY,
+      image: "/images/emotion-happy-m.png",
+    },
+    {
+      id: 2,
+      date: "2024.10.27",
+      content:
+        "비가 와서 조금 우울한 기분이었지만, 집에서 따뜻한 차를 마시며 책을 읽었어요.",
+      emotion: EmotionType.SAD,
+      image: "/images/emotion-sad-m.png",
+    },
+    {
+      id: 3,
+      date: "2024.10.26",
+      content:
+        "회사에서 일이 잘 풀리지 않아서 스트레스를 많이 받았습니다. 화가 많이 났어요.",
+      emotion: EmotionType.ANGRY,
+      image: "/images/emotion-angry-m.png",
+    },
+    {
+      id: 4,
+      date: "2024.10.25",
+      content:
+        "갑자기 옛 친구에게서 연락이 와서 정말 놀랐어요. 오랜만에 만나기로 했습니다.",
+      emotion: EmotionType.SURPRISE,
+      image: "/images/emotion-surprise-m.png",
+    },
+    {
+      id: 5,
+      date: "2024.10.24",
+      content:
+        "평범한 하루였지만 나름대로 의미있는 시간을 보냈습니다. 특별할 것 없는 일상이었어요.",
+      emotion: EmotionType.ETC,
+      image: "/images/emotion-etc-m.png",
+    },
+    {
+      id: 6,
+      date: "2024.10.23",
+      content:
+        "새로운 취미를 시작해서 정말 기뻐요. 앞으로 더 열심히 해보려고 합니다.",
+      emotion: EmotionType.HAPPY,
+      image: "/images/emotion-happy-m.png",
+    },
+  ];
 
   // 필터 옵션 - ENUM 사용
   const filterOptions = [
@@ -111,7 +175,29 @@ const DiariesComponent: React.FC = () => {
 
       {/* Main 1168 * 936 */}
       <div className={styles.main}>
-        <div className={styles.mainContent}>Main Content Area</div>
+        <div className={styles.mainContent}>
+          <div className={styles.diaryGrid}>
+            {mockDiaries.map((diary) => (
+              <div key={diary.id} className={styles.diaryCard}>
+                <div className={styles.cardImage}>
+                  <Image
+                    src={diary.image}
+                    alt={getEmotionLabel(diary.emotion)}
+                    width={48}
+                    height={48}
+                  />
+                </div>
+                <div className={styles.cardContent}>
+                  <div className={styles.cardDate}>{diary.date}</div>
+                  <div className={styles.cardText}>{diary.content}</div>
+                  <div className={styles.cardEmotion}>
+                    {getEmotionLabel(diary.emotion)}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Gap 1168 * 40 */}
