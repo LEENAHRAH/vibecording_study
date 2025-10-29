@@ -1,0 +1,186 @@
+/* DiariesNew 컴포넌트 스타일 */
+
+/* Wrapper - 640 * 560 */
+.wrapper {
+  width: 640px;
+  height: 560px;
+  background-color: var(--color-bg-primary);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Header - full * 24 */
+.header {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.headerTitle {
+  font: var(--typography-headline-01);
+  color: var(--color-text-primary);
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+}
+
+/* Gap - full * 40 */
+.gap {
+  width: 100%;
+  height: 40px;
+}
+
+/* Gap Small - full * 24 */
+.gapSmall {
+  width: 100%;
+  height: 24px;
+}
+
+/* Emotion Box - full * 64 */
+.emotionBox {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.emotionTitle {
+  font: var(--typography-title-01);
+  color: var(--color-text-primary);
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+}
+
+.emotionRadioGroup {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.emotionRadioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  height: 24px;
+}
+
+.emotionRadioInput {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.emotionRadioText {
+  font: var(--typography-body-01);
+  color: var(--color-text-secondary);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.18px;
+}
+
+/* Input Title - full * 76 */
+.inputTitle {
+  width: 100%;
+  height: 76px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputLabel {
+  font: var(--typography-body-02-medium);
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+  margin: 0;
+}
+
+/* Input 컴포넌트는 자체 스타일 사용 */
+
+/* Input Content - full * 156 */
+.inputContent {
+  width: 100%;
+  height: 156px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contentTextarea {
+  width: 100%;
+  height: 128px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border-primary);
+  border-radius: 8px;
+  background-color: var(--color-bg-primary);
+  font: var(--typography-body-01);
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.contentTextarea::placeholder {
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+
+.contentTextarea:focus {
+  border-color: var(--color-border-focus);
+}
+
+/* Footer - full * 48 */
+.footer {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Button 컴포넌트는 자체 스타일 사용, width만 className으로 조정 */
+
+/* 반응형 대응 */
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    min-height: 560px;
+    margin: 0 auto;
+  }
+
+  .emotionRadioGroup {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer {
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
+  }
+}
