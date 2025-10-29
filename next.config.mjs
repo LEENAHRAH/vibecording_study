@@ -41,7 +41,7 @@ const nextConfig = {
     ignoreDuringBuilds: false,
   },
   // 출력 설정 최적화
-  output: "standalone",
+  // output: "standalone",
 };
 
 export default nextConfig;
