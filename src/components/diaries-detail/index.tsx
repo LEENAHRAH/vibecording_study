@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -25,11 +25,12 @@ const mockDiaryData = {
 const mockRetrospectData = [
   {
     id: "1",
-    content: "오늘은 정말 좋은 하루였다. 새로운 것을 배우고 성장할 수 있어서 기뻤다.",
+    content:
+      "오늘은 정말 좋은 하루였다. 새로운 것을 배우고 성장할 수 있어서 기뻤다.",
     createdAt: "2024. 07. 12",
   },
   {
-    id: "2", 
+    id: "2",
     content: "힘든 일이 있었지만 극복할 수 있어서 뿌듯하다.",
     createdAt: "2024. 07. 11",
   },
@@ -38,7 +39,7 @@ const mockRetrospectData = [
 // @01-common.mdc 룰 준수: 독립적인 부품들의 조립 형태로 구현
 const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
   const emotionInfo = getEmotionInfo(mockDiaryData.emotion);
-  
+
   // 회고 입력 상태 관리
   const [retrospectInput, setRetrospectInput] = useState("");
   const [retrospectList, setRetrospectList] = useState(mockRetrospectData);
@@ -49,11 +50,14 @@ const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
       const newRetrospect = {
         id: Date.now().toString(),
         content: retrospectInput.trim(),
-        createdAt: new Date().toLocaleDateString('ko-KR', {
-          year: 'numeric',
-          month: '2-digit', 
-          day: '2-digit'
-        }).replace(/\./g, '. ').replace(/\s+$/, ''),
+        createdAt: new Date()
+          .toLocaleDateString("ko-KR", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          })
+          .replace(/\./g, ". ")
+          .replace(/\s+$/, ""),
       };
       setRetrospectList([newRetrospect, ...retrospectList]);
       setRetrospectInput("");
@@ -173,10 +177,19 @@ const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
 
       {/* Retrospect List: 1168 * 72 */}
       <div className={styles.retrospectList}>
-        {retrospectList.map((retrospect) => (
+        {retrospectList.map((retrospect, index) => (
           <div key={retrospect.id} className={styles.retrospectItem}>
-            <div className={styles.retrospectContent}>{retrospect.content}</div>
-            <div className={styles.retrospectDate}>{retrospect.createdAt} 작성</div>
+            <div className={styles.retrospectItemContent}>
+              <div className={styles.retrospectContent}>
+                {retrospect.content}
+              </div>
+              <div className={styles.retrospectDate}>
+                [{retrospect.createdAt}]
+              </div>
+            </div>
+            {index < retrospectList.length - 1 && (
+              <div className={styles.retrospectDivider}></div>
+            )}
           </div>
         ))}
       </div>
