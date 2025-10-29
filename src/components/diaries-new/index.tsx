@@ -82,15 +82,15 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
 
       {/* Input Title */}
       <div className={styles.inputTitle}>
-        <label className={styles.inputLabel}>제목</label>
         <Input
           variant="primary"
           theme="light"
           size="medium"
+          label="제목"
           placeholder="제목을 입력합니다."
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full"
+          className={styles.inputWidth}
         />
       </div>
 
@@ -116,7 +116,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
           theme="light"
           size="medium"
           onClick={handleClose}
-          className="w-[104px]"
+          className={styles.buttonWidth}
         >
           닫기
         </Button>
@@ -125,7 +125,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
           theme="light"
           size="medium"
           onClick={handleSubmit}
-          className="w-[104px]"
+          className={styles.buttonWidth}
         >
           등록하기
         </Button>

@@ -86,8 +86,14 @@ export const getEmotionColor = (emotionType: EmotionType): string => {
   return emotionConfig[emotionType].color;
 };
 
-// 모든 감정 타입 배열 (순회용)
-export const allEmotionTypes = Object.values(EmotionType);
+// 모든 감정 타입 배열 (순회용) - 피그마 디자인 순서와 일치
+export const allEmotionTypes = [
+  EmotionType.HAPPY,
+  EmotionType.SAD,
+  EmotionType.SURPRISE,
+  EmotionType.ANGRY,
+  EmotionType.ETC,
+];
 
 // 감정 타입 검증 함수
 export const isValidEmotionType = (value: string): value is EmotionType => {
