@@ -7,7 +7,7 @@ const nextConfig = {
       logLevel: "error",
     },
     // 메모리 사용량 최적화
-    memoryBasedWorkersCount: 1,
+    memoryBasedWorkersCount: true,
   },
   // Storybook 파일들을 Next.js 빌드에서 제외
   webpack: (config, { isServer, dev }) => {
@@ -27,8 +27,10 @@ const nextConfig = {
       };
     }
 
-    // 파일 시스템 캐시 비활성화
-    config.cache = false;
+    // 파일 시스템 캐시 비활성화 (빌드 안정성을 위해)
+    if (!dev) {
+      config.cache = false;
+    }
 
     return config;
   },
@@ -40,7 +42,9 @@ const nextConfig = {
     // Stories 파일에서 발생하는 ESLint 오류 무시
     ignoreDuringBuilds: false,
   },
-  // 출력 설정 최적화
+  // 정적 생성 최적화
+  trailingSlash: false,
+  // 출력 설정 최적화 (Vercel에서는 주석 처리)
   // output: "standalone",
 };
 

@@ -9,6 +9,7 @@ import styles from "./styles.module.css";
 
 interface DiariesDetailProps {
   className?: string;
+  diaryId?: string;
 }
 
 // Mock 데이터 - enum 타입을 활용한 감정 관련 데이터
@@ -37,8 +38,19 @@ const mockRetrospectData = [
 ];
 
 // @01-common.mdc 룰 준수: 독립적인 부품들의 조립 형태로 구현
-const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
-  const emotionInfo = getEmotionInfo(mockDiaryData.emotion);
+const DiariesDetail: React.FC<DiariesDetailProps> = ({
+  className,
+  diaryId,
+}) => {
+  // diaryId에 따라 다른 데이터를 보여줄 수 있도록 수정
+  // 실제 프로젝트에서는 API 호출로 데이터를 가져와야 합니다
+  const currentDiaryData = {
+    ...mockDiaryData,
+    id: diaryId || mockDiaryData.id,
+    title: `다이어리 ${diaryId || mockDiaryData.id} - ${mockDiaryData.title}`,
+  };
+
+  const emotionInfo = getEmotionInfo(currentDiaryData.emotion);
 
   // 회고 입력 상태 관리
   const [retrospectInput, setRetrospectInput] = useState("");
@@ -72,7 +84,7 @@ const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
       {/* Detail Title: 1168 * 84 */}
       <div className={styles.detailTitle}>
         <div className={styles.titleSection}>
-          <h1 className={styles.title}>{mockDiaryData.title}</h1>
+          <h1 className={styles.title}>{currentDiaryData.title}</h1>
         </div>
         <div className={styles.emotionAndDate}>
           <div className={styles.emotionSection}>
@@ -91,7 +103,9 @@ const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
             </span>
           </div>
           <div className={styles.dateSection}>
-            <span className={styles.dateText}>{mockDiaryData.createdAt}</span>
+            <span className={styles.dateText}>
+              {currentDiaryData.createdAt}
+            </span>
             <span className={styles.createdText}>작성</span>
           </div>
         </div>
@@ -104,7 +118,7 @@ const DiariesDetail: React.FC<DiariesDetailProps> = ({ className }) => {
       <div className={styles.detailContent}>
         <div className={styles.contentArea}>
           <div className={styles.contentLabel}>내용</div>
-          <div className={styles.contentText}>{mockDiaryData.content}</div>
+          <div className={styles.contentText}>{currentDiaryData.content}</div>
         </div>
         <div className={styles.copySection}>
           <button className={styles.copyButton}>
