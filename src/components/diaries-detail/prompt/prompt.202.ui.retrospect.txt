@@ -31,11 +31,13 @@
 ==============================================
 
 기존히스토리-참고만) MCP를 연동하여 피그마의 디자인을 이미 만들어져있는 와이어프레임의 retrospect-input, retrospect-list 영역에 그대로 구현할 것.
+기존히스토리-참고만) styles_button--medium의 minwidth를 제거할 것.
+기존히스토리-참고만) 피그마 노드ID 3:1157 를 참고하여 피그마의 디자인을 그대로 구현할 것.
 
 ==============================================
 
-핵심요구사항) styles_button--medium의 minwidth를 제거할 것.
-핵심요구사항) 피그마 노드ID 3:1157 를 참고하여 피그마의 디자인을 그대로 구현할 것.
+핵심요구사항) styles_retrospectItemContent__0CzmC의 justify-content: space-between; 를 제거할 것.
+핵심요구사항) styles_retrospectContent__CTss8와 styles_retrospectDate__uED_A 사이의 간격 12px이 사라졌는데 이를 복구할 것.
 
 핵심요구사항) 공통컴포넌트는 다음의 규칙을 지켜 step-by-step 으로 구현하고, 적용 결과를 체크리스트로 반환할 것.
             1. 공통컴포넌트 원본을 수정하지 말고, 아래의 props만 활용할 것.
