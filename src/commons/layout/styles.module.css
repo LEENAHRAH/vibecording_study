@@ -23,6 +23,7 @@
   height: 40px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .logoText {
@@ -89,6 +90,12 @@
 }
 
 .tabText {
+  font: var(--typography-headline-01);
+  color: var(--color-black);
+  letter-spacing: -0.24px;
+}
+
+.tabTextActive {
   font: var(--typography-headline-01);
   color: var(--color-black);
   letter-spacing: -0.24px;
