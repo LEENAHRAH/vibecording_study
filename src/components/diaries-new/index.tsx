@@ -46,18 +46,18 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid="diary-new-modal">
       {/* Header */}
       <div className={styles.header}>
-        <h1 className={styles.headerTitle}>일기 쓰기</h1>
+        <h1 className={styles.headerTitle} data-testid="diary-new-title">일기 쓰기</h1>
       </div>
 
       <div className={styles.gap}></div>
 
       {/* Emotion Box */}
       <div className={styles.emotionBox}>
-        <h2 className={styles.emotionTitle}>오늘 기분은 어땠나요?</h2>
-        <div className={styles.emotionRadioGroup}>
+        <h2 className={styles.emotionTitle} data-testid="emotion-question">오늘 기분은 어땠나요?</h2>
+        <div className={styles.emotionRadioGroup} data-testid="emotion-radio-group">
           {allEmotionTypes.map((emotionType) => (
             <label key={emotionType} className={styles.emotionRadioLabel}>
               <input
@@ -69,6 +69,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
                   setSelectedEmotion(e.target.value as EmotionType)
                 }
                 className={styles.emotionRadioInput}
+                data-testid={`emotion-radio-${emotionType.toLowerCase()}`}
               />
               <span className={styles.emotionRadioText}>
                 {emotionConfig[emotionType].label}
@@ -91,6 +92,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           className={styles.inputWidth}
+          data-testid="diary-title-input"
         />
       </div>
 
@@ -104,6 +106,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           className={styles.contentTextarea}
+          data-testid="diary-content-textarea"
         />
       </div>
 
@@ -117,6 +120,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
           size="medium"
           onClick={handleClose}
           className={styles.buttonWidth}
+          data-testid="diary-close-button"
         >
           닫기
         </Button>
@@ -126,6 +130,7 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
           size="medium"
           onClick={handleSubmit}
           className={styles.buttonWidth}
+          data-testid="diary-submit-button"
         >
           등록하기
         </Button>

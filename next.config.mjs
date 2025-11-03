@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 실험적 기능 활성화로 파일 시스템 문제 해결
+  // Windows 파일 시스템 문제 해결을 위한 설정
   experimental: {
     // 빌드 캐시 최적화
     turbotrace: {
@@ -8,7 +8,11 @@ const nextConfig = {
     },
     // 메모리 사용량 최적화
     memoryBasedWorkersCount: true,
+    // Windows에서 파일 시스템 문제 해결
+    esmExternals: false,
   },
+  // Windows 호환성을 위한 추가 설정
+  swcMinify: false,
   // Storybook 파일들을 Next.js 빌드에서 제외
   webpack: (config, { isServer, dev }) => {
     if (!isServer) {
@@ -27,10 +31,11 @@ const nextConfig = {
       };
     }
 
-    // 파일 시스템 캐시 비활성화 (빌드 안정성을 위해)
-    if (!dev) {
-      config.cache = false;
-    }
+    // Windows에서 파일 시스템 캐시 완전 비활성화
+    config.cache = false;
+    
+    // Windows 파일 경로 문제 해결
+    config.resolve.symlinks = false;
 
     return config;
   },

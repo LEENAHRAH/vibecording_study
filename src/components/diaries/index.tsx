@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./styles.module.css";
 import { SelectBox } from "../../commons/components/selectbox";
@@ -13,7 +12,7 @@ import {
   getEmotionLabel,
   getEmotionImage,
 } from "../../commons/constants/enum";
-import { URLS } from "../../commons/constants/url";
+import { useLinkModal } from "./hooks/index.link.modal.hook";
 
 // Mock 데이터 인터페이스
 interface DiaryEntry {
@@ -25,7 +24,7 @@ interface DiaryEntry {
 }
 
 const DiariesComponent: React.FC = () => {
-  const router = useRouter();
+  const { openWriteDiaryModal } = useLinkModal();
 
   // 상태 관리 - 타입 안전성 개선
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
@@ -186,9 +185,9 @@ const DiariesComponent: React.FC = () => {
     // TODO: 실제 필터링 로직 구현 예정
   };
 
-  // 일기쓰기 버튼 핸들러 - URL 상수 사용
+  // 일기쓰기 버튼 핸들러 - 모달 열기
   const handleWriteDiary = () => {
-    router.push(URLS.DIARIES.NEW);
+    openWriteDiaryModal();
   };
 
   // 플러스 아이콘 컴포넌트
@@ -202,7 +201,7 @@ const DiariesComponent: React.FC = () => {
   );
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="diaries-page">
       {/* Gap 1168 * 32 */}
       <div className={styles.gap32}></div>
 
@@ -244,6 +243,7 @@ const DiariesComponent: React.FC = () => {
             iconPosition="left"
             onClick={handleWriteDiary}
             className={styles.writeButton}
+            data-testid="write-diary-button"
           >
             일기쓰기
           </Button>
