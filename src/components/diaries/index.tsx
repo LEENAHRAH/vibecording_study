@@ -3,15 +3,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./styles.module.css";
-import { SelectBox } from "../../commons/components/selectbox";
-import { SearchBar } from "../../commons/components/searchbar";
-import { Button } from "../../commons/components/button";
-import { Pagination } from "../../commons/components/pagination";
+import { SelectBox } from "@/commons/components/selectbox";
+import { SearchBar } from "@/commons/components/searchbar";
+import { Button } from "@/commons/components/button";
+import { Pagination } from "@/commons/components/pagination";
 import {
   EmotionType,
   getEmotionLabel,
   getEmotionImage,
-} from "../../commons/constants/enum";
+} from "@/commons/constants/enum";
 import { useLinkModal } from "./hooks/index.link.modal.hook";
 
 // Mock 데이터 인터페이스

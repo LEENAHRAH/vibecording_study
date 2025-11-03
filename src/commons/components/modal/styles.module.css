@@ -1,0 +1,186 @@
+/* Modal Base Styles */
+.modal {
+  /* 기본 레이아웃 */
+  width: 480px;
+  height: 200px;
+  background-color: var(--color-bg-primary);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  
+  /* 폰트 설정 */
+  font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+}
+
+/* Content Area */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+/* Title Styles */
+.title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Message Styles */
+.message {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Actions Area */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Single Action Layout */
+.actions--single {
+  justify-content: center;
+}
+
+/* Dual Actions Layout */
+.actions--dual {
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Button Styles for Modal */
+.singleButton {
+  width: 432px;
+  height: 48px;
+}
+
+.confirmButton {
+  width: 104px;
+  height: 48px;
+}
+
+.cancelButton {
+  width: 104px;
+  height: 48px;
+}
+
+/* Variant Styles */
+.modal--primary {
+  /* 기본 스타일 적용 */
+}
+
+.modal--secondary {
+  /* secondary variant 스타일 */
+}
+
+.modal--tertiary {
+  /* tertiary variant 스타일 */
+}
+
+/* Theme Styles */
+.modal--light {
+  background-color: var(--color-bg-primary);
+}
+
+.modal--light .title {
+  color: var(--color-text-primary);
+}
+
+.modal--light .message {
+  color: var(--color-text-secondary);
+}
+
+.modal--dark {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-primary);
+}
+
+.modal--dark .title {
+  color: var(--color-text-primary);
+}
+
+.modal--dark .message {
+  color: var(--color-text-secondary);
+}
+
+.content--light {
+  /* Light theme content */
+}
+
+.content--dark {
+  /* Dark theme content */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal {
+    width: 90vw;
+    max-width: 400px;
+    height: auto;
+    min-height: 180px;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  
+  .message {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  
+  .singleButton {
+    width: 100%;
+  }
+  
+  .confirmButton,
+  .cancelButton {
+    flex: 1;
+    min-width: 80px;
+  }
+  
+  .actions--dual {
+    gap: 12px;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .modal--light {
+    border: 2px solid var(--color-text-primary);
+  }
+  
+  .modal--dark {
+    border: 2px solid var(--color-text-inverse);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .modal {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    box-shadow: none;
+  }
+  
+  .title,
+  .message {
+    color: black;
+  }
+}
