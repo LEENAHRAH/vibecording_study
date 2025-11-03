@@ -51,14 +51,14 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
       {isOpen &&
         typeof window !== 'undefined' &&
         createPortal(
-          <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
             {/* Backdrop */}
             <div
-              className="absolute inset-0 bg-black bg-opacity-50"
+              className="absolute inset-0 bg-black bg-opacity-70"
               onClick={closeModal}
             />
-            {/* Modal Content - max-w-md, w-full 제거됨 */}
-            <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 m-4">
+            {/* Modal Content - wrapper가 명확하게 보이도록 개선 */}
+            <div className="relative max-h-[90vh] overflow-auto">
               {content}
             </div>
           </div>,

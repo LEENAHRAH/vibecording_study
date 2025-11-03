@@ -9,7 +9,11 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 50px var(--color-black);
+  position: relative;
+  z-index: 10;
+  /* 모달에서 명확하게 구분되도록 배경 설정 */
+  border: 1px solid var(--color-border-primary);
 }
 
 /* Header - full * 24 */
@@ -24,10 +28,6 @@
   font: var(--typography-headline-01);
   color: var(--color-text-primary);
   margin: 0;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: -0.24px;
 }
 
 /* Gap - full * 40 */
@@ -55,10 +55,6 @@
   font: var(--typography-title-01);
   color: var(--color-text-primary);
   margin: 0;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: -0.2px;
 }
 
 .emotionRadioGroup {
@@ -86,10 +82,6 @@
 .emotionRadioText {
   font: var(--typography-body-01);
   color: var(--color-text-secondary);
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: -0.18px;
 }
 
 /* Input Title - full * 76 */
@@ -115,10 +107,6 @@
 .inputLabel {
   font: var(--typography-body-02-medium);
   color: var(--color-text-secondary);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: -0.14px;
   margin: 0;
 }
 
@@ -131,21 +119,13 @@
   background-color: var(--color-bg-primary);
   font: var(--typography-body-01);
   color: var(--color-text-primary);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: -0.16px;
   resize: none;
   outline: none;
   box-sizing: border-box;
 }
 
 .contentTextarea::placeholder {
-  color: var(--color-text-primary);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: -0.16px;
+  color: var(--color-text-tertiary);
 }
 
 .contentTextarea:focus {

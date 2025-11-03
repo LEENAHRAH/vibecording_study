@@ -36,3 +36,4 @@
             
             2) 상세 구현 내용
                 - 일기쓰기버튼: 클릭시, 모달 컴포넌트를 기존의 페이지 위 중앙에 overlay 하여 겹칠 것.
+                - classname: styles_wrapper__ReGTa 상위 div에 색상이 들어가 있어 모달창 위에 다른 영역이 있는것처럼 보이므로 classname: styles_wrapper__ReGTa만 존재하는 것처럼 보이게 수정할 것.
