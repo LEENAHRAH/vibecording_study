@@ -8,6 +8,7 @@ import {
   emotionConfig,
   allEmotionTypes,
 } from "@/commons/constants/enum";
+import { useDiaryModalClose } from "./hooks/index.link.modal.close.hook";
 import styles from "./styles.module.css";
 
 export interface DiariesNewProps {
@@ -28,6 +29,9 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
   );
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  
+  // 모달 닫기 훅 사용
+  const { handleClose: handleModalClose } = useDiaryModalClose();
 
   const handleSubmit = () => {
     if (onSubmit) {
@@ -40,6 +44,10 @@ export const DiariesNew: React.FC<DiariesNewProps> = ({
   };
 
   const handleClose = () => {
+    // 훅에서 제공하는 모달 닫기 처리 사용
+    handleModalClose();
+    
+    // 기존 onClose 콜백도 호출 (필요한 경우)
     if (onClose) {
       onClose();
     }
